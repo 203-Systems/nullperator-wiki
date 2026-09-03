@@ -1,0 +1,108 @@
+---
+title: Quick start
+sidebar_position: 1
+description: Hear a note, play a pattern, and save it in about five minutes.
+---
+
+# Quick start
+
+This walkthrough starts with an empty project and uses the built-in OPAL synth,
+so it does not need a sample or demo file.
+
+## Before you start
+
+- Make sure audio is ready on your device. See [Use NullPerator anywhere](./platforms)
+  if this is your first session.
+- Save any work you want to keep; the first step replaces the current project.
+- Find **Shift**, **Enter**, **Play**, and the directions in
+  [Controls at a glance](../controls/buttons).
+
+On Web, choose **Enable sound** before using Enter or Play for the first time.
+
+In the steps below, “tap” means press and release; “hold” means keep the button
+down.
+
+## 1. Open a clean project
+
+If an existing song opens on Song, hold Shift and tap Up to open **Project**.
+Place the cursor on **Name**, use Left or Right to select **New** in the bottom
+bar, and press <Keycap>Enter</Keycap>. If NullPerator warns that unsaved changes
+will be lost, choose **Yes** and press Enter again.
+
+After choosing New, NullPerator returns to **Song** automatically. Put the
+cursor on row `00`, track `T1`.
+
+<InterfaceShot src="img/screens/song-empty.png" alt="Empty Song view with row numbers on the left and eight tracks across the screen">
+  Song arranges music across eight tracks. Start at row 00 under T1.
+</InterfaceShot>
+
+## 2. Make the first pattern
+
+1. Tap <Keycap>Enter</Keycap>. The Song cell becomes `00`.
+2. Hold <Keycap>Shift</Keycap> and tap <Keycap>Right</Keycap> to open **Chain 00**.
+3. At Chain row `00`, tap <Keycap>Enter</Keycap>. The `PH` cell becomes `00`.
+4. Hold Shift and tap Right again to open **Phrase 00**.
+
+<InterfaceShot src="img/screens/chain.png" alt="Chain view with PH and TR columns">
+  PH chooses a phrase. Leave TR at 0 for now.
+</InterfaceShot>
+
+## 3. Add a note
+
+Keep the cursor on `NOTE`, row `00`, and tap <Keycap>Enter</Keycap>. The row now
+shows note `C3` and instrument `I00`. It is normal to hear nothing yet: the
+instrument slot does not have a sound until the next step.
+
+<InterfaceShot src="img/screens/phrase-note.png" alt="Phrase row 00 showing note C3 and instrument I00">
+  C3 is the pitch. I00, immediately to its right, chooses Instrument 00.
+</InterfaceShot>
+
+## 4. Give it a sound
+
+1. Hold Shift and tap Right to open **Instrument 00**.
+2. Tap <Keycap>Down</Keycap> once to move from **Name** to **Type**.
+3. Tap <Keycap>Left</Keycap> once. The type wraps from `NONE` to `OPAL`.
+4. Hold Shift and tap Left to return to Phrase.
+
+<InterfaceShot src="img/screens/instrument-opal.png" alt="Instrument 00 with Type set to OPAL">
+  When Type reads OPAL and the settings appear, Instrument 00 is ready.
+</InterfaceShot>
+
+## 5. Hear and play it
+
+Back on Phrase row `00`, hold <Keycap>Enter</Keycap> while the cursor is on the
+`C3` note. You should hear the note immediately; release Enter to stop the
+preview.
+
+Tap <Keycap>Play</Keycap> to hear the pattern in sequence. A filled triangle in
+the top bar means playback is active. Tap Play again to stop.
+
+If there is no sound, check these three things:
+
+- Audio is ready on your device.
+- The Phrase row shows both `C3` and `I00`.
+- Instrument 00 shows `TYPE OPAL`, not `NONE`.
+
+## 6. Name and save it
+
+<InterfaceShot src="img/screens/project-name.png" alt="Project page with the Name row selected">
+  Name actions appear in the bottom bar: New, Load, Save, and Rename.
+</InterfaceShot>
+
+1. Hold Shift and tap Left to go from Phrase to Chain.
+2. Hold Shift and tap Left again to go from Chain to Song.
+3. Hold Shift and tap Up to open Project.
+4. Focus **Name**, choose **Rename** in the bottom bar, and press Enter.
+5. Enter a non-empty name and choose **Save**.
+6. Back on Project, choose **Save** in the Name bottom bar.
+
+NullPerator also autosaves when it is safe. Before closing the app, powering
+off, or removing storage, stop playback and wait for the saving mark in the
+top-right corner to disappear. Use **Save** whenever you want a known
+checkpoint.
+
+## Next
+
+- Try the interactive [controls at a glance](../controls/buttons).
+- Understand the [screen map](./screen-and-navigation).
+- Build a complete arrangement in [Song & Live](../sequencer/song-live).

@@ -1,0 +1,9 @@
+{
+  "label": "Reference",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "title": "Reference",
+    "description": "Commands, scales, limits, troubleshooting, and acknowledgements."
+  }
+}

@@ -1,0 +1,219 @@
+---
+title: Creative techniques
+sidebar_position: 4
+description: Verified recipes for oscillator samples, break chopping, grooves, tables, and MIDI performance.
+---
+
+import Admonition from '@theme/Admonition';
+
+# Creative techniques
+
+These recipes turn a few tracker commands into larger musical gestures. They
+are adapted from ideas shared by the LGPT and PicoTracker communities, then
+rewritten against NullPerator 0.1 behavior. Parameters are hexadecimal unless
+the text says otherwise; keep the [command reference](./commands.md) nearby.
+
+<Admonition type="tip" title="Start with one lane">
+Build and audition one command lane before adding another. A Table has three
+independent lane positions, so a misplaced `HOP` can make a patch sound much
+more complicated than the data on screen.
+</Admonition>
+
+## Delay, repeats, and decaying echoes
+
+NullPerator has a real Phrase-note delay command. `DLY 0002` delays the note on
+that row by three ticks: `DLY` uses only its last nibble and waits `b + 1`
+ticks. There is no need to hide a note with volume automation and restart it
+with a playhead offset, as older PicoTracker recipes suggested.
+
+For repeats, put these two commands beside a Sample note:
+
+```text
+RTG 0003    repeat from the same point every 3 ticks
+VOL 4000    fade volume toward 00 at speed 40
+```
+
+This produces a simple decaying echo from one note. `RTG` is voice
+retriggering rather than an audio delay line, so filters and other commands
+continue to shape the same instrument state. A short one-shot sample may end
+before the next repeat; use a suitable loop mode or a longer source when that
+happens.
+
+## Turn samples into oscillators
+
+Set a [Sample instrument](../instruments/sample.md) to `OSCILLATOR`, then place
+`LOOP START` and `LOOP END` around one repeating cycle. NullPerator derives the
+base pitch from that loop length and tunes it from C3, so the source does not
+need to have been recorded at a known note.
+
+Interesting source material is not limited to clean waveforms. A tiny window
+inside a voice, field recording, or drum loop becomes a pitched texture. Keep
+the loop short enough to read as a tone; increase it when you want the
+underlying rhythm or grain to emerge.
+
+### Wavetable scanning with `LOF`
+
+Concatenate several equal-length cycles into one WAV and make the oscillator
+loop exactly one cycle long. If every cycle is `0100` frames, this command
+moves the whole loop window to the next cycle:
+
+```text
+LOF 0100    move LOOP START and LOOP END forward by 0x100 frames
+```
+
+`LOF` is cumulative and boundary-checked. `LOF FF00` moves the window back by
+`0100` frames. It does **not** move the playback head and it does not address
+256 normalized chunks; that is `POF`.
+
+For an automatically moving two-position wavetable, use one Table lane:
+
+```text
+00  LOF 0100
+01  LOF FF00
+02  HOP 0000
+```
+
+The `HOP` loops that lane to row `00`. Use a `GRV` command in another lane if
+the Table should move more slowly than its default fast clock.
+
+### Coarse PWM
+
+Make a 256-frame square wave, but use a 128-frame oscillator loop. Moving that
+half-width window across the high and low halves changes the duty content:
+
+```text
+LOF 0010    move the 128-frame window forward 16 frames
+LOF FFF0    move it backward 16 frames
+```
+
+Alternate the two offsets in a Table for coarse pulse-width modulation. The
+window must remain inside the WAV; once either end reaches a boundary, further
+movement in that direction is ignored.
+
+### Evolving drones
+
+Put a short oscillator window inside a long, harmonically varied recording,
+then advance it slowly:
+
+```text
+00  LOF 0001
+01  HOP 0000
+```
+
+Slow the Table with `GRV`, or insert empty rows, until the scan becomes gradual.
+Play the instrument on several tracks at different notes for a chord whose
+timbre evolves while every voice stays pitched.
+
+## Chop a loop with `POF`
+
+`POF` addresses the **entire sample** as 256 equal chunks. The high byte is an
+absolute position when it is nonzero; the low byte is then added as a signed
+relative offset. The result wraps at the sample ends.
+
+Start one sustained drum-loop voice and place these commands on later Phrase
+rows without entering new notes:
+
+```text
+POF 4000    jump to 1/4 of the WAV
+POF 8000    jump to 1/2
+POF C000    jump to 3/4
+POF 01FF    jump to 1/256, then back 1/256: the beginning
+```
+
+Reorder the rows to rearrange the beat. `POF 0040` is different: with no
+absolute high byte, it moves forward by a relative quarter from the current
+playhead. Keep the voice alive with `FORWARD`, `PING PONG`, or an appropriate
+loop window; `POF` cannot revive a voice that has already ended.
+
+## Calculate a Groove's effective BPM
+
+At the project tempo, one Groove tick is 1/24 of a quarter note. A straight
+16-row Phrase therefore uses `16 × 6 = 96` ticks. If you still hear the Phrase
+as four beats, its effective BPM is:
+
+```text
+effective BPM = project BPM × 96 / ticks across 16 Phrase rows
+```
+
+For an active Groove pattern of `n` entries, repeat those entries until you
+have 16 row durations and add them. When `n` divides 16, the shortcut is:
+
+```text
+ticks across 16 rows = (16 / n) × sum of the n Groove values
+```
+
+Examples at project tempo 100:
+
+| Groove | Ticks over 16 rows | Effective BPM |
+| --- | ---: | ---: |
+| `06 / 06` | 96 | 100 |
+| `07 / 05` | 96 | 100 |
+| `04 / 04` | 64 | 150 |
+| `06 / 04` | 80 | 120 |
+
+The formula describes tempo only when you continue to interpret 16 rows as
+four beats. An asymmetric or odd-length Groove can instead imply a different
+meter or phase pattern. See [Groove](../sequencer/groove.mdx) for editing and
+interpolation.
+
+## Compose with three independent Table lanes
+
+A [Table](../sequencer/table.mdx) is more useful when each lane has one job:
+
+- Lane 1 can articulate the voice with `IRT`, `RTG`, or `POF`.
+- Lane 2 can move timbre with `LOF`, `FCT`, `FRS`, or `VOL`.
+- Lane 3 can control structure with `GRV`, `HOP`, and `STP`.
+
+The three lanes keep separate row positions. A `HOP` only redirects the lane
+that contains it, so one modulation can loop every two rows while another
+continues across all 16. `GRV` changes their shared Table timing.
+
+This Table turns one held note into a three-note cycle at Groove `00` speed:
+
+```text
+00  IRT 0000    GRV 0000    --- 0000
+01  IRT 0007    --- 0000    --- 0000
+02  IRT 000C    --- 0000    --- 0000
+03  HOP 0000    --- 0000    --- 0000
+```
+
+`IRT` is a Table-local instrument retrigger. Its low byte is a signed semitone
+offset: `000C` is one octave up and `00FF` is one semitone down. Keep `IRT` in
+one lane; if several lanes issue it on the same Table step, only one resulting
+retrigger can be applied.
+
+## Compact command recipes
+
+| Goal | Context | Example | Result |
+| --- | --- | --- | --- |
+| Loop an effect lane | Table | `HOP 0000` | Jump to row `0` indefinitely. Put it after the rows to repeat. |
+| Loop part of a Phrase | Phrase | Put `HOP 0004` on row `08` | When playback would enter row `08`, redirect to row `04`; the HOP row itself is skipped. |
+| Retrigger at a transposed pitch | Table | `IRT 000C` | Restart the current instrument one octave higher. |
+| Linear Sample slide | Phrase or Table | `PSL 080C` | Move toward +12 semitones with speed `08`. |
+| Curved Sample slide | Phrase or Table | `LEG 0807` | Curve toward +7 semitones with speed `08`. |
+| Move an oscillator window | Sample | `LOF 0100` | Shift both loop endpoints forward by 256 frames. |
+| Jump within a WAV | Sample | `POF 8000` | Move the playback head to the midpoint of the whole WAV. |
+| Tick repeat | Sample or MIDI | `RTG 0003` | Repeat the current voice every three ticks. MIDI ignores `aa`. |
+| Scale-aware MIDI triad | MIDI | `MCH 0240` | Add scale offsets 2 and 4 to the base note; zero nibbles omit voices. |
+
+For `LEG` and `PSL`, a speed byte of `00` snaps to the target. On Sample
+instruments, the low byte is a signed semitone target. On MIDI instruments it
+is a pitch-bend target, with `7F` as center; the connected synth's pitch-bend
+range decides the audible interval.
+
+## MIDI pitch bend survives note changes
+
+Pitch bend is channel state. Starting a new MIDI note does not send a center
+message, so the receiver keeps the last bend value across Note On events. A
+new note stops any unfinished NullPerator bend motion at its most recently sent
+position, but it still does not recenter the channel.
+
+Use an explicit command when the next note should be unbent:
+
+```text
+PSL 007F    snap the MIDI channel back to pitch-bend center
+```
+
+Place it on the new note row or the row before it. This is especially important
+when several NullPerator MIDI instruments share one external MIDI channel,
+because they also share that channel's bend state.

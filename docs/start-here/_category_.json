@@ -1,0 +1,9 @@
+{
+  "label": "Start here",
+  "position": 2,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "description": "Go from a blank project to a saved eight-track pattern."
+  }
+}

@@ -1,0 +1,107 @@
+---
+title: Phrase
+sidebar_position: 3
+description: Program notes, instruments, and two effects across a 16-step phrase.
+---
+
+# Phrase
+
+A phrase is the main note-entry grid. Chains refer to phrases, and each phrase contains 16 steps. NullPerator provides phrase IDs `00`–`FE`.
+
+<InterfaceShot src="img/screens/phrase-note.png" alt="NullPerator Phrase view with Note, Instrument, and two FX pairs">
+  Phrase keeps NOTE, INS, FX1, and FX2 aligned across all sixteen steps.
+</InterfaceShot>
+
+## Fields
+
+| Column | Meaning | Empty display |
+| --- | --- | --- |
+| `NOTE` | Note trigger, note off, or no event | `----` |
+| `INS` | Instrument slot `00`–`3F` | `I--` |
+| `FX1` | First three-character effect command | `---` |
+| FX1 value | Four hexadecimal digits interpreted by FX1 | `0000` |
+| `FX2` | Second effect command | `---` |
+| FX2 value | Four hexadecimal digits interpreted by FX2 | `0000` |
+
+The bottom bar normally shows the latest live note on each track. A populated `NOTE` or `INS` cell can replace it with instrument context; a non-empty FX pair replaces it with that command's help. Selection and clipboard notices take priority over both.
+
+## Try this
+
+1. Put the cursor on an empty `NOTE` cell and tap **Enter**. The most recent
+   note and instrument are inserted together.
+2. Hold Enter on the note to preview it. While holding, tap **Right** to move to
+   the next note in the project scale, then release Enter.
+3. Tap **Play** to hear the Phrase in sequence; tap Play again to stop.
+
+For a complete guided example, follow [Make your first loop](../start-here/first-loop).
+
+## Navigation
+
+Directions move through the six editable columns and 16 steps. At row `00`, **Up** opens the previous populated phrase in the current chain and lands on `0F`. At row `0F`, **Down** opens the next populated phrase and lands on `00`. An empty adjacent Chain row blocks the move.
+
+Hold **Option** to change context without moving the cell cursor:
+
+- **Left / Right** selects the previous or next track at the current Chain row.
+- **Up / Down** selects the phrase in the adjacent Chain row while preserving the current Phrase step. An empty adjacent row blocks the move.
+
+## Editing
+
+Tap **Enter** to apply the last value for the current column. On `NOTE` or `INS`, holding Enter also auditions the current step until Enter is released; an empty step may produce no sound. Audition does not interrupt an already-running Song, Chain, or Phrase transport.
+
+Creating a note in an empty `NOTE` cell also writes the last explicit instrument into `INS`. This makes the new note immediately playable. A deliberately empty `I--` on an existing note still keeps its normal playback-time instrument inheritance behavior.
+
+Hold **Enter** and use the directions:
+
+| Column | Left / Right | Down / Up |
+| --- | --- | --- |
+| `NOTE` | Previous / next note in the project scale | Down / up one octave |
+| `INS` | `-1` / `+1` slot | `-10` / `+10` in hexadecimal (`-16` / `+16`) |
+| FX command | Previous / next command | Coarse alphabetic command jump |
+| FX value | Move the active digit | Decrease / increase that hex digit |
+
+For sliced sample instruments, NOTE editing stays inside the instrument's slice-note range. Otherwise NOTE editing follows the project's root and scale.
+
+FX values have a four-digit cursor. While Enter is held, Left and Right choose the digit; Up and Down edit it with steps of `1000`, `0100`, `0010`, or `0001`. The effect command clamps the final value to its valid range.
+
+On `INS`, a second consecutive Enter allocates a new empty instrument slot. On the parameter of a `TBL` effect, a second Enter allocates a new table. These allocation gestures do not apply to NOTE or ordinary FX cells.
+
+Hold **Enter** and **Option** together to cut a cell. Cutting NOTE also clears its paired INS assignment; cutting an FX command clears the command and its value.
+
+## Selection and clipboard
+
+Begin a selection with **Shift then Option**, release Shift, and extend it with the directions.
+
+| Input while selected | Result |
+| --- | --- |
+| Shift then Option | Expand across all six columns; repeat to select all 16 rows |
+| Option | Copy and exit Selection Mode |
+| Enter + Option | Cut and exit Selection Mode |
+| Enter + directions | Adjust every selected cell |
+| Play | Play the current Phrase context |
+
+Paste with **Shift + Enter** after the selection has closed. Phrase clipboard columns remain type-aligned: a copied note returns to NOTE, and values cannot be pasted into command cells. Compatible FX command/value pairs can also be transferred between Phrase and Table.
+
+### Clone referenced data
+
+The clone gesture is **Shift then Option**, keep Shift held, release Option, then press **Enter** immediately:
+
+- On `INS`, it duplicates the referenced instrument into a new slot and updates this cell.
+- On an FX value whose command is `TBL`, it duplicates the referenced table and updates the value.
+- It does not clone from NOTE or FX command cells.
+
+## Playback and track state
+
+- **Play** starts or stops the current phrase on the selected track, using its position in the current chain.
+- **Shift + Play** starts or stops the whole Song from the stored Song cursor.
+- **Option + Play** toggles solo for the selected track.
+- **Option then Shift** toggles mute for the selected track.
+- **Shift + Option + Play** clears all mute and solo state.
+
+## Next
+
+Hold **Shift** and press:
+
+- **Left** → Chain
+- **Right** → Instrument
+- **Down** → Phrase Table
+- **Up** → Groove
