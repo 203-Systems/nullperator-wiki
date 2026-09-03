@@ -1,0 +1,108 @@
+---
+title: Change notes and values
+sidebar_position: 3
+description: Fine, coarse, digit, empty-cell, and list editing behavior.
+---
+
+# Change notes and values
+
+NullPerator separates **moving** from **changing**. In tracker grids, directions
+move the cursor and Enter + a direction changes the active value. In settings
+lists, horizontal directions make the everyday adjustment directly, while
+Enter + vertical directions provide the faster step.
+
+## Shortcuts
+
+<ShortcutReference
+  groups={[
+    {
+      title: 'Tracker grids',
+      items: [
+        {
+          keys: ['Enter'],
+          title: 'Initialize an empty cell',
+          input: 'Tap Enter',
+        },
+        {
+          keys: ['Enter', 'Left', 'Right'],
+          title: 'Make a fine change',
+          input: 'Hold Enter, then press Left or Right',
+        },
+        {
+          keys: ['Enter', 'Up', 'Down'],
+          title: 'Make a coarse change',
+          input: 'Hold Enter, then press Up or Down',
+          detail: 'Applies a field-specific step to whole-field values.',
+        },
+      ],
+    },
+    {
+      title: 'Lists and effect values',
+      items: [
+        {
+          keys: ['Left', 'Right'],
+          title: 'Change a list value',
+          input: 'Tap Left or Right',
+        },
+        {
+          keys: ['Enter', 'Up', 'Down'],
+          title: 'Use the faster list step',
+          input: 'Hold Enter, then press Up or Down',
+        },
+        {
+          keys: ['Enter', 'Left', 'Right'],
+          title: 'Choose an effect digit',
+          input: 'Hold Enter, then press Left or Right',
+        },
+        {
+          keys: ['Enter', 'Up', 'Down'],
+          title: 'Change the selected effect digit',
+          input: 'Hold Enter, then press Up or Down',
+        },
+        {
+          keys: ['Enter'],
+          title: 'Audition a note',
+          input: 'Hold Enter; release it to stop',
+        },
+      ],
+    },
+  ]}
+/>
+
+## Tracker grids
+
+- Press <Keycap>Enter</Keycap> on an empty resource cell to initialize it.
+- Hold Enter + Left/Right for the fine step.
+- Hold Enter + Up/Down for the coarse step.
+- Keep a direction held to repeat.
+
+The coarse amount follows the field. For example, a Chain phrase changes by 16
+and its transpose changes by an octave (12 semitones). On a Phrase note the
+bottom bar names the two axes **Note** and **Oct** instead of showing numeric
+step sizes.
+
+Pressing Enter on an empty Song, Chain, Phrase, or Table cell fills it with a
+useful starting value. A new Phrase note also selects Instrument 00, but you
+still need to choose a sound for that instrument.
+
+## Four-digit effect values
+
+Phrase and Table effect parameters are four hexadecimal digits. Hold Enter and
+press Left/Right to move the digit focus. Up/Down edits the focused digit. The
+command mnemonic remains highlighted while either its mnemonic or its value is
+active, and the bottom bar continues to show command help.
+
+## Project, Device, and Instrument lists
+
+For an editable list value:
+
+- Left/Right changes the normal step without a modifier.
+- Enter + Up/Down changes the coarse step where that value defines one.
+- Enumerations wrap when their field is designed as a circular selector.
+
+Scale and Root can still be changed while Enter is held, but they remain
+enumerations rather than numeric coarse-step fields. Disabled or unavailable
+items do not silently become editable.
+
+When a note can be previewed, keep Enter held to hear it and release Enter to
+stop. If normal playback is running, stop it before previewing a single note.

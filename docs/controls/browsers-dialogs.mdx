@@ -1,0 +1,102 @@
+---
+title: Browsers and dialogs
+sidebar_position: 6
+description: Common file browser, rename, confirmation, and feedback patterns.
+---
+
+# Browsers and dialogs
+
+NullPerator uses full-screen browsers for projects, samples, instruments,
+and themes. Choosing a project loads the song; choosing a sample or instrument
+imports it into the current project.
+
+## Shortcuts
+
+<ShortcutReference
+  groups={[
+    {
+      title: 'Browsers',
+      items: [
+        {
+          keys: ['Up', 'Down'],
+          title: 'Move between files',
+          input: 'Tap Up or Down',
+        },
+        {
+          keys: ['Left', 'Right'],
+          title: 'Choose a bottom action',
+          input: 'Tap Left or Right',
+        },
+        {
+          keys: ['Enter'],
+          title: 'Open or activate',
+          input: 'Tap Enter',
+        },
+        {
+          keys: ['Shift', 'Left'],
+          title: 'Return to the owner page',
+          input: 'Hold Shift, then press Left',
+        },
+      ],
+    },
+    {
+      title: 'Rename and dialogs',
+      items: [
+        {
+          keys: ['Up', 'Down', 'Left', 'Right'],
+          title: 'Move the keyboard cursor',
+          input: 'Tap a direction',
+        },
+        {
+          keys: ['Enter'],
+          title: 'Activate a key or choice',
+          input: 'Tap Enter',
+        },
+        {
+          keys: ['Shift'],
+          title: 'Toggle letter case',
+          input: 'Tap Shift on the rename keyboard',
+        },
+        {
+          keys: ['Left', 'Right', 'Enter'],
+          title: 'Choose a dialog action',
+          input: 'Tap Left or Right, then Enter',
+        },
+      ],
+    },
+  ]}
+/>
+
+## Browser conventions
+
+- Up/Down moves the row cursor.
+- Left/Right moves through actions in the bottom bar.
+- Enter activates the selected row or action.
+- `..` enters the parent directory. It does not close the browser.
+- Shift + Left returns to the page that opened the browser.
+
+Sample and Project browsers add their own preview, import, and delete actions.
+Deleting something always asks for confirmation first.
+
+## Rename keyboard
+
+Rename opens a dedicated screen rather than floating above the previous page.
+The title sits at the top, the input field below it, and the keyboard fills the
+lower area.
+
+- Directions move between keys.
+- Enter activates the focused key.
+- Shift toggles letter case; the letters on the keyboard update immediately.
+- The icon keys provide case, space, and backspace.
+- The bottom actions are **Cancel / Random / Save**.
+
+Save is dimmed and disabled while the name is empty. If the name already exists
+or saving fails, the screen stays open and tells you what happened.
+
+## Confirmations and feedback
+
+In a confirmation, move to the action you want and press Enter.
+
+Brief results such as **Copied**, **Pasted**, or **Locked** appear in the bottom
+bar. Errors that need your attention open a message in the middle of the
+screen. Rendering shows its progress and can be cancelled.

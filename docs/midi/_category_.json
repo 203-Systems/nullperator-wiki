@@ -1,0 +1,9 @@
+{
+  "label": "MIDI",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "title": "MIDI",
+    "description": "Connect MIDI input and output, configure sync, and understand message support."
+  }
+}

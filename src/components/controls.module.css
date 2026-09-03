@@ -1,0 +1,216 @@
+.keycap {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--np-ink);
+  display: inline-flex;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78em;
+  font-weight: 650;
+  gap: 0.3rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 0.15rem;
+  vertical-align: -0.42rem;
+  white-space: nowrap;
+}
+
+.keyGlyph {
+  display: block;
+  flex: 0 0 auto;
+  height: 1.65rem;
+  overflow: visible;
+  width: 3.85rem;
+}
+
+.keyGlyphReference {
+  height: 2.15rem;
+  width: 5rem;
+}
+
+.keyGlyphButton {
+  fill: transparent;
+  stroke: var(--np-dim);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.keyGlyphButtonActive {
+  fill: var(--np-cyan);
+  stroke: var(--ifm-color-primary);
+}
+
+.combo {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.32rem;
+  vertical-align: -0.42rem;
+  white-space: nowrap;
+}
+
+.comboLabel {
+  color: var(--np-ink);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78em;
+  font-weight: 650;
+}
+
+.controlMap {
+  background: var(--np-panel);
+  border: 1px solid var(--np-line);
+  border-radius: 8px;
+  margin: 1.75rem 0 2.5rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.controller {
+  align-items: center;
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr);
+  margin: 0.7rem auto 1.7rem;
+  max-width: 660px;
+}
+
+.mapButton {
+  background: transparent;
+  border: 1px solid var(--np-dim);
+  color: var(--np-ink);
+  cursor: pointer;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.35rem;
+  transition: background 130ms ease, border-color 130ms ease;
+}
+
+.mapButton:hover { border-color: var(--np-dim); }
+
+.mapButton:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+.mapButtonActive {
+  background: var(--np-cyan);
+  border-color: var(--ifm-color-primary);
+  color: var(--np-cyan-ink);
+}
+
+.mapAction {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dpad {
+  display: grid;
+  grid-template-areas: '. up .' 'left center right' '. down .';
+  grid-template-columns: repeat(3, 54px);
+  justify-content: center;
+}
+
+.dpad .mapButton { border-radius: 5px; }
+.dpadUp { grid-area: up; }
+.dpadDown { grid-area: down; }
+.dpadLeft { grid-area: left; }
+.dpadRight { grid-area: right; }
+.dpadCenter { background: transparent; grid-area: center; }
+
+.actionKeys {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-areas: 'option enter' 'play shift';
+  grid-template-columns: repeat(2, 86px);
+  justify-content: center;
+}
+
+.actionKeys .mapButton {
+  border-radius: 5px;
+  min-width: 86px;
+}
+
+.optionKey { grid-area: option; }
+.enterKey { grid-area: enter; }
+.shiftKey { grid-area: shift; }
+.playKey { grid-area: play; }
+
+.controlDetail {
+  align-items: center;
+  background: var(--np-panel-deep);
+  border-top: 1px solid var(--np-line);
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(74px, auto) 1fr auto;
+  margin: 0 -1rem -1rem;
+  min-height: 3.3rem;
+  padding: 0.7rem 1rem;
+}
+
+.controlDetail strong { color: var(--ifm-color-primary); }
+.controlDetail span { color: var(--np-dim); font-size: 0.86rem; }
+
+.interfaceShot {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 2.5rem;
+}
+
+.screenShell {
+  background: var(--np-screen);
+  border: 1px solid #293235;
+  border-radius: 15px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.screenShell img {
+  aspect-ratio: 1 / 1;
+  display: block;
+  height: auto;
+  image-rendering: pixelated;
+  max-width: min(100%, 480px);
+  width: 480px;
+}
+
+.interfaceShot figcaption {
+  color: var(--np-dim);
+  font-size: 0.82rem;
+  margin-top: 0.8rem;
+  max-width: 32rem;
+  text-align: center;
+}
+
+@media (max-width: 660px) {
+  .controller {
+    gap: 0.5rem;
+    grid-template-areas: 'dpad action';
+    grid-template-columns: 132px 112px;
+    justify-content: center;
+  }
+
+  .dpad {
+    grid-area: dpad;
+    grid-template-columns: repeat(3, 44px);
+  }
+
+  .actionKeys {
+    gap: 0.5rem;
+    grid-area: action;
+    grid-template-columns: repeat(2, 52px);
+  }
+
+  .actionKeys .mapButton {
+    min-width: 52px;
+  }
+
+  .controlDetail { grid-template-columns: 1fr; }
+  .controlDetail span { grid-column: 1 / -1; grid-row: 2; }
+  .screenShell img { width: 240px; }
+}

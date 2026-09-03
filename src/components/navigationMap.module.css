@@ -1,0 +1,185 @@
+.figure {
+  margin: 2rem 0 2.5rem;
+}
+
+.panel {
+  background: var(--np-panel);
+  border: 1px solid var(--np-line);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 1rem 1rem 0.65rem;
+}
+
+.heading {
+  color: var(--np-dim);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.diagram {
+  display: block;
+  height: auto;
+  margin: 0.35rem auto 0;
+  max-width: 760px;
+  width: 100%;
+}
+
+.mobileDiagram {
+  display: none;
+}
+
+.routes path {
+  fill: none;
+  stroke: var(--np-line);
+  stroke-linecap: square;
+  stroke-width: 4;
+}
+
+.node rect {
+  fill: var(--np-panel-deep);
+  stroke: var(--np-line);
+  stroke-width: 2;
+}
+
+.node text {
+  dominant-baseline: middle;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.nodeLetter {
+  fill: var(--ifm-color-primary);
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.nodeName {
+  fill: var(--np-ink);
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.currentNode rect {
+  fill: var(--np-cyan);
+  stroke: var(--np-cyan);
+}
+
+.currentNode .nodeLetter,
+.currentNode .nodeName {
+  fill: var(--np-cyan-ink);
+}
+
+.figure figcaption {
+  color: var(--np-dim);
+  font-size: 0.82rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .panel {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+  }
+
+  .diagram {
+    display: none;
+  }
+
+  .mobileDiagram {
+    display: grid;
+    gap: 20px 8px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, 56px);
+    margin: 1rem 0 0.35rem;
+    position: relative;
+  }
+
+  .mobileRoute {
+    background: var(--np-line);
+    display: block;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .songRoute,
+  .phraseRoute {
+    width: 2px;
+  }
+
+  .songRoute {
+    height: 228px;
+    left: 12.5%;
+    top: 28px;
+  }
+
+  .phraseRoute {
+    height: 152px;
+    left: 62.5%;
+    top: 104px;
+  }
+
+  .instrumentRoute {
+    height: 76px;
+    left: 87.5%;
+    top: 180px;
+    width: 2px;
+  }
+
+  .mainRoute {
+    height: 2px;
+    left: 12.5%;
+    right: 12.5%;
+    top: 180px;
+  }
+
+  .tableRoute {
+    bottom: 28px;
+    height: 2px;
+    left: 62.5%;
+    right: 12.5%;
+  }
+
+  .mobileNode {
+    align-items: center;
+    background: var(--np-panel-deep);
+    border: 1px solid var(--np-line);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.05;
+    min-width: 0;
+    padding: 0.2rem 0.1rem;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .mobileNode strong {
+    color: var(--ifm-color-primary);
+    font-family: var(--ifm-font-family-monospace);
+    font-size: 0.92rem;
+  }
+
+  .mobileNode span {
+    color: var(--np-ink);
+    font-size: 0.58rem;
+    margin-top: 0.16rem;
+    overflow-wrap: anywhere;
+  }
+
+  .mobileCurrent {
+    background: var(--np-cyan);
+    border-color: var(--np-cyan);
+  }
+
+  .mobileCurrent strong,
+  .mobileCurrent span {
+    color: var(--np-cyan-ink);
+  }
+}

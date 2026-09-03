@@ -1,0 +1,110 @@
+---
+title: Playback, mute, and solo
+sidebar_position: 5
+description: Page playback, Song and Live transport, mute, and solo.
+---
+
+# Playback, mute, and solo
+
+<Keycap>Play</Keycap> is contextual. A plain press starts from the current Song,
+Chain, Phrase, Table, Groove, or selection context; tapping it while active
+stops playback. On pages with local playback, Shift + Play requests full Song
+transport. In Live, Shift + Play starts the focused track or selected span when
+transport is stopped, or queues that same target to stop while transport is
+running.
+
+The top bar shows a filled triangle and elapsed time while playback is
+running. Playback cursors only mark populated material: an empty track is not
+painted as though it had a chain.
+
+## Shortcuts
+
+<ShortcutReference
+  groups={[
+    {
+      title: 'Playback',
+      items: [
+        {
+          keys: ['Play'],
+          title: 'Play or stop the current context',
+          input: 'Tap Play',
+        },
+        {
+          keys: ['Shift', 'Play'],
+          title: 'Use the alternate transport action',
+          input: 'Hold Shift, then press Play',
+          detail:
+            'In Live, it starts the focused track or selected span when stopped; while running, it queues that target to stop.',
+        },
+        {
+          keys: ['Enter', 'Play'],
+          title: 'Launch immediately in Live',
+          input: 'Hold Enter, then press Play',
+        },
+        {
+          keys: ['Left', 'Play'],
+          title: 'Cue the current Song row',
+          input: 'Hold Left, then press Play',
+          detail: 'Cues the row across all eight tracks.',
+        },
+      ],
+    },
+    {
+      title: 'Song and Live',
+      items: [
+        {
+          keys: ['Option', 'Left', 'Right'],
+          title: 'Switch Song or Live',
+          input: 'Hold Option, then press Left or Right',
+        },
+        {
+          keys: ['Option', 'Up', 'Down'],
+          title: 'Jump between Song sections',
+          input: 'Hold Option, then press Up or Down',
+        },
+      ],
+    },
+    {
+      title: 'Track states',
+      items: [
+        {
+          keys: ['Option', 'Shift'],
+          title: 'Mute the current track',
+          input: 'Hold Option, then press Shift',
+        },
+        {
+          keys: ['Option', 'Play'],
+          title: 'Solo the current track',
+          input: 'Hold Option, then press Play',
+        },
+        {
+          keys: ['Option', 'Shift', 'Play'],
+          title: 'Clear every mute and solo',
+          input: 'Hold Option, then press Shift, then Play',
+          detail: 'Press Play last; this order avoids entering Selection Mode.',
+        },
+      ],
+    },
+  ]}
+/>
+
+## Song and Live
+
+In Song, hold Option and press either horizontal direction to switch the
+two-item bottom selector between **SONG** and **LIVE**. The selector wraps; no
+extra arrow prompt is required.
+
+In Live, Enter then Play starts the focused item immediately. Left then Play
+cues the current Song row across all eight tracks.
+
+Option + Up/Down jumps between populated Song sections.
+
+## Mute and solo
+
+The order matters because Shift then Option starts Selection. Option then Shift
+toggles mute for the current track, or for the horizontal span of an active
+Song selection. Option then Play toggles solo. To clear every mute and solo,
+hold Option, press Shift while keeping Option held, and then press Play. Play
+must be last; this order avoids leaving the grid in Selection Mode.
+
+Master in Mixer has no mute or solo action.

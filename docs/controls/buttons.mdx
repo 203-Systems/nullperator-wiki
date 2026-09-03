@@ -1,0 +1,107 @@
+---
+title: Controls at a glance
+sidebar_position: 1
+description: Learn the shared control names, then match them to your device.
+---
+
+# Controls at a glance
+
+NullPerator uses the same actions everywhere: **Shift**, **Option**, **Enter**,
+**Play**, and four directions. The visualizer shows that shared control set;
+the table below maps it to your device.
+
+<ControlMap />
+
+## Common gestures
+
+<ShortcutReference
+  groups={[
+    {
+      title: 'Move and edit',
+      items: [
+        {
+          keys: ['Up', 'Down', 'Left', 'Right'],
+          title: 'Move the cursor',
+          input: 'Tap a direction',
+        },
+        {
+          keys: ['Shift', 'Up', 'Down', 'Left', 'Right'],
+          title: 'Move between views',
+          input: 'Hold Shift, then press a direction',
+        },
+        {
+          keys: ['Enter'],
+          title: 'Edit or confirm',
+          input: 'Tap or hold Enter as the page instructs',
+        },
+      ],
+    },
+    {
+      title: 'Play and select',
+      items: [
+        {
+          keys: ['Play'],
+          title: 'Play the current context',
+          input: 'Tap Play',
+        },
+        {
+          keys: ['Shift', 'Option'],
+          title: 'Begin a selection',
+          input: 'Hold Shift, then press Option',
+        },
+        {
+          keys: ['Option', 'Shift'],
+          title: 'Mute the current track',
+          input: 'Hold Option, then press Shift',
+        },
+      ],
+    },
+  ]}
+/>
+
+## How this manual writes controls
+
+The wording tells you whether to tap or hold a control:
+
+| Wording | What to do |
+| --- | --- |
+| **Tap Enter** | Press Enter and release it. |
+| **Hold Enter** | Keep Enter down until the step tells you to release it. |
+| **Shift + Right** | Hold Shift, tap Right, then release Shift. |
+| **Shift then Option** | Press Shift first, keep it held, then press Option. |
+
+A plus sign means the controls are held together. **Then** means their order
+matters: press the first control, keep it held, and then press the second. This
+distinction is important because **Shift then Option** begins a selection,
+while **Option then Shift** toggles mute.
+
+## Find the controls on your device
+
+The Web and iOS on-screen controls use the manual names directly. Keyboard
+bindings work on Web and with an iOS hardware keyboard.
+
+| Action | NullPerator hardware | Keyboard | iOS controller |
+| --- | --- | --- | --- |
+| Directions | D-pad | `WASD` or arrows | D-pad or left stick |
+| Shift | `START` | `X` | Options/Share |
+| Option | `B` | `J` | `B1` |
+| Enter | `A` | `K` | `B0` |
+| Play | `SELECT` | `C` | Menu/Start |
+
+On iOS, a connected game controller or hardware keyboard is optional; the
+touch controls provide every action. Controller face-button labels vary, so
+`B0` and `B1` describe their positions rather than printed labels. See
+[Use NullPerator anywhere](../start-here/platforms) for files, audio, MIDI, and
+recording differences.
+
+NullPerator hardware also has a **Power** action on `FUNC`. It has no Web or
+iOS mapping.
+
+Older PicoTracker guides may use **EDIT**, **ALT**, or **NAV**. In this manual,
+use the NullPerator names and the table above.
+
+## Repeat
+
+Hold a direction to repeat cursor movement in scrolling lists and tracker
+grids. Project, Device, and Instrument intentionally use a controlled repeat
+rate so one long press does not fly past an item.

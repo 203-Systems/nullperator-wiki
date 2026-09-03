@@ -1,0 +1,120 @@
+.taskGrid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.4rem 0 2rem;
+}
+
+.taskCard {
+  background: var(--np-panel);
+  border: 1px solid var(--np-line);
+  border-radius: 12px;
+  color: var(--np-ink);
+  display: grid;
+  gap: 0.35rem;
+  min-height: 154px;
+  padding: 1.15rem;
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.taskCard:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--np-ink);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.taskCard strong {
+  font-size: 1.04rem;
+}
+
+.taskCard > span:not(.taskNumber, .taskLink) {
+  color: var(--np-dim);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.taskNumber {
+  color: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.taskLink {
+  align-self: end;
+  color: var(--ifm-color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.flow {
+  align-items: stretch;
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1.4rem 0 2rem;
+}
+
+.flowStep {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.flowCard {
+  background: var(--np-panel-deep);
+  border: 1px solid var(--np-line);
+  border-radius: 9px;
+  color: var(--np-ink);
+  min-height: 88px;
+  padding: 0.8rem;
+  text-decoration: none;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.flowCard:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--np-ink);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.flowStep strong,
+.flowStep span {
+  display: block;
+}
+
+.flowCard span {
+  color: var(--np-dim);
+  font-size: 0.72rem;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}
+
+.flowArrow {
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+  padding: 0 0.35rem;
+}
+
+@media (max-width: 660px) {
+  .taskGrid { grid-template-columns: 1fr; }
+  .taskCard { min-height: 132px; }
+
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  .flowStep {
+    grid-template-columns: 1fr;
+  }
+
+  .flowArrow {
+    padding: 0.2rem 0;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}

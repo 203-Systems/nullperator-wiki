@@ -1,0 +1,138 @@
+---
+title: Selection and clipboard
+sidebar_position: 4
+description: Select, resize, copy, cut, paste, clone, and interpolate.
+---
+
+import Admonition from '@theme/Admonition';
+
+# Selection and clipboard
+
+Song, Chain, Phrase, Table, and Groove support bounded selections. There is no
+separate paste mode: the clipboard remains available after copying, and
+Shift + Enter pastes once at the current cursor whenever the page is compatible.
+
+## Shortcuts
+
+<ShortcutReference
+  groups={[
+    {
+      title: 'Selection',
+      items: [
+        {
+          keys: ['Shift', 'Option'],
+          title: 'Begin a selection',
+          input: 'Hold Shift, then press Option',
+        },
+        {
+          keys: ['Up', 'Down', 'Left', 'Right'],
+          title: 'Resize a grid selection',
+          input: 'Tap a direction in Selection Mode',
+          detail: 'Available in Song, Chain, Phrase, and Table.',
+        },
+        {
+          keys: ['Up', 'Down'],
+          title: 'Resize a Groove selection',
+          input: 'Tap Up or Down in Selection Mode',
+        },
+        {
+          keys: ['Shift', 'Option'],
+          title: 'Expand the selection preset',
+          input: 'Repeat Shift, then Option',
+        },
+        {
+          keys: ['Enter', 'Up', 'Down', 'Left', 'Right'],
+          title: 'Adjust the selected values',
+          input: 'Hold Enter, then press a direction',
+          detail: 'Available in Song, Chain, Phrase, and Table.',
+        },
+        {
+          keys: ['Play'],
+          title: 'Play the selected context',
+          input: 'Tap Play in Selection Mode',
+        },
+      ],
+    },
+    {
+      title: 'Clipboard',
+      items: [
+        {
+          keys: ['Option'],
+          title: 'Copy',
+          input: 'Tap Option in Selection Mode',
+        },
+        {
+          keys: ['Enter', 'Option'],
+          title: 'Cut',
+          input: 'Hold Enter + Option',
+          detail:
+            'Either order works in tracker grids. Groove requires Enter, then Option.',
+        },
+        {
+          keys: ['Shift', 'Enter'],
+          title: 'Paste',
+          input: 'Hold Shift, then press Enter outside Selection Mode',
+        },
+        {
+          keys: ['Shift', 'Option', 'Enter'],
+          title: 'Clone a referenced resource',
+          input: 'Hold Shift, tap Option, then press Enter',
+          detail: 'Keep Shift held after releasing Option.',
+        },
+        {
+          keys: ['Shift', 'Enter'],
+          title: 'Interpolate a Groove selection',
+          input: 'Hold Shift, then press Enter in Selection Mode',
+        },
+      ],
+    },
+  ]}
+/>
+
+## Begin and resize
+
+1. Press and hold <Keycap>Shift</Keycap>.
+2. Press <Keycap>Option</Keycap>.
+3. Release the modifiers, then use directions to extend from the anchor. Song,
+   Chain, Phrase, and Table use all four directions; Groove uses Up and Down.
+
+The bottom bar reads **Selection Mode** and explains the next action. Repeat
+Shift → Option to expand the selection preset: first across the page's row or
+columns, then across the visible page. Groove has only one column, so its first
+repeat selects all 16 visible steps.
+
+<Admonition type="warning" title="Order matters">
+
+Option → Shift is **Mute**, not Selection. Start with Shift.
+
+</Admonition>
+
+## Clipboard actions
+
+Copy and Cut exit Selection Mode. Paste writes at the cursor and leaves the
+clipboard reusable. Adjusting a range applies the field's fine or coarse step
+to every compatible cell; Groove does not batch-adjust this way. In Song, Play
+uses the selected horizontal track span.
+
+Copy and Paste each show a two-second bottom-bar notice including the
+selection dimensions. If the clipboard's page/column shape cannot be pasted at
+the target, NullPerator leaves the data unchanged and shows an incompatibility
+message.
+
+## Clone a referenced resource
+
+Clone is a deliberate ordered gesture used on cells that reference reusable
+resources:
+
+1. Hold Shift and press Option on the reference cell.
+2. Keep holding Shift, release Option, then press Enter.
+
+NullPerator clones the referenced resource into the next free slot and replaces
+the cell with that new number. Any unrelated input cancels the pending clone.
+
+## Groove exception: interpolate
+
+Inside a Groove selection, Shift + Enter interpolates values between the two
+endpoints instead of pasting. A successful operation shows **Interpolated** and
+the number of affected steps. To paste Groove data, leave Selection Mode first,
+move to the destination, then use Shift + Enter.
