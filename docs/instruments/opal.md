@@ -20,11 +20,11 @@ OPAL is a two-operator FM synthesizer inspired by OPL-era PC sound hardware. Eac
 | `DEEP TREM/VIB` | Two bits | `00` | Global deep-tremolo and deep-vibrato flags. |
 | `FEEDBACK` | `0`–`7` | `0` | Feedback amount for operator 1. |
 
-For `DEEP TREM/VIB`, hold Enter, choose the tremolo or vibrato bit with Left / Right, and toggle it with Up / Down.
+For `DEEP TREM/VIB`, hold <Keycap>Enter</Keycap>, choose the tremolo or vibrato bit with <Keycap>Left</Keycap> / <Keycap>Right</Keycap>, and toggle it with <Keycap>Up</Keycap> / <Keycap>Down</Keycap>.
 
 ## Operator settings
 
-The lower section shows operator 1 and operator 2 side by side. Up / Down moves by row. Left / Right without Enter switches operator columns; hold Enter while changing the selected operator's value.
+The lower section shows operator 1 and operator 2 side by side. <Keycap>Up</Keycap> / <Keycap>Down</Keycap> moves by row. <Keycap>Left</Keycap> / <Keycap>Right</Keycap> without <Keycap>Enter</Keycap> switches operator columns; hold <Keycap>Enter</Keycap> while changing the selected operator's value.
 
 | Field | Values | OP1 default | OP2 default | Behaviour |
 | --- | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ The lower section shows operator 1 and operator 2 side by side. Up / Down moves 
 | `TR/VB/SU/KSR` | Four bits | `0000` | `0010` | Tremolo, vibrato, sustained envelope, and key-rate scaling flags. |
 | `KEYSCALE` | `0`, `1.5`, `3`, `6` | `1.5` | `0` | Selects the displayed high-note attenuation curve. |
 
-`A/D/S/R` and `TR/VB/SU/KSR` are component fields: hold Enter, select a digit or bit with Left / Right, then edit it with Up / Down.
+`A/D/S/R` and `TR/VB/SU/KSR` are component fields: hold <Keycap>Enter</Keycap>, select a digit or bit with <Keycap>Left</Keycap> / <Keycap>Right</Keycap>, then edit it with <Keycap>Up</Keycap> / <Keycap>Down</Keycap>.
 
 ## Voice behaviour
 

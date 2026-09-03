@@ -10,7 +10,7 @@ import Admonition from '@theme/Admonition';
 
 Song, Chain, Phrase, Table, and Groove support bounded selections. There is no
 separate paste mode: the clipboard remains available after copying, and
-Shift + Enter pastes once at the current cursor whenever the page is compatible.
+<KeyCombo keys={['Shift', 'Enter']} /> pastes once at the current cursor whenever the page is compatible.
 
 ## Shortcuts
 
@@ -94,16 +94,16 @@ Shift + Enter pastes once at the current cursor whenever the page is compatible.
 1. Press and hold <Keycap>Shift</Keycap>.
 2. Press <Keycap>Option</Keycap>.
 3. Release the modifiers, then use directions to extend from the anchor. Song,
-   Chain, Phrase, and Table use all four directions; Groove uses Up and Down.
+   Chain, Phrase, and Table use all four directions; Groove uses <Keycap>Up</Keycap> and <Keycap>Down</Keycap>.
 
 The bottom bar reads **Selection Mode** and explains the next action. Repeat
-Shift → Option to expand the selection preset: first across the page's row or
+Use <KeyCombo keys={['Shift', 'Option']} sequence /> to expand the selection preset: first across the page's row or
 columns, then across the visible page. Groove has only one column, so its first
 repeat selects all 16 visible steps.
 
 <Admonition type="warning" title="Order matters">
 
-Option → Shift is **Mute**, not Selection. Start with Shift.
+<KeyCombo keys={['Option', 'Shift']} sequence /> is **Mute**, not Selection. Start with <Keycap>Shift</Keycap>.
 
 </Admonition>
 
@@ -111,7 +111,7 @@ Option → Shift is **Mute**, not Selection. Start with Shift.
 
 Copy and Cut exit Selection Mode. Paste writes at the cursor and leaves the
 clipboard reusable. Adjusting a range applies the field's fine or coarse step
-to every compatible cell; Groove does not batch-adjust this way. In Song, Play
+to every compatible cell; Groove does not batch-adjust this way. In Song, <Keycap>Play</Keycap>
 uses the selected horizontal track span.
 
 Copy and Paste each show a two-second bottom-bar notice including the
@@ -124,15 +124,15 @@ message.
 Clone is a deliberate ordered gesture used on cells that reference reusable
 resources:
 
-1. Hold Shift and press Option on the reference cell.
-2. Keep holding Shift, release Option, then press Enter.
+1. Use <KeyCombo keys={['Shift', 'Option']} sequence /> on the reference cell.
+2. Keep holding <Keycap>Shift</Keycap>, release <Keycap>Option</Keycap>, then press <Keycap>Enter</Keycap>.
 
 NullPerator clones the referenced resource into the next free slot and replaces
 the cell with that new number. Any unrelated input cancels the pending clone.
 
 ## Groove exception: interpolate
 
-Inside a Groove selection, Shift + Enter interpolates values between the two
+Inside a Groove selection, <KeyCombo keys={['Shift', 'Enter']} /> interpolates values between the two
 endpoints instead of pasting. A successful operation shows **Interpolated** and
 the number of affected steps. To paste Groove data, leave Selection Mode first,
-move to the destination, then use Shift + Enter.
+move to the destination, then use <KeyCombo keys={['Shift', 'Enter']} />.

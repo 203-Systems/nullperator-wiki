@@ -28,16 +28,16 @@ Autosave helps recover recent work, but it is not version history. Use manual
 
 ## Render a mixdown or stems
 
-On the Project page, select `RENDER`, choose **MIXDOWN** or **STEMS** with Left
-and Right, and press Enter.
+On the Project page, select `RENDER`, choose **MIXDOWN** or **STEMS** with
+<Keycap>Left</Keycap> and <Keycap>Right</Keycap>, and press <Keycap>Enter</Keycap>.
 
 Rendering starts from Song row `00` and stops at the end. Stop playback first,
 and make sure row `00` contains at least one chain with a phrase.
 
 While rendering, a progress dialog is shown:
 
-- Enter cancels an active render.
-- Enter acknowledges completion or an error.
+- <Keycap>Enter</Keycap> cancels an active render.
+- <Keycap>Enter</Keycap> acknowledges completion or an error.
 - A file-open failure is reported as `COULD NOT OPEN FILE`.
 
 The result is a 44.1 kHz, 16-bit stereo WAV:

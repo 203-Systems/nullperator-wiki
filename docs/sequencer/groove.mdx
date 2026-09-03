@@ -29,53 +29,57 @@ Groove values control duration, not velocity. A row with `09` simply remains act
 
 ## Navigate and edit
 
-Plain **Up** and **Down** move through the 16 Groove rows and wrap at both ends.
+Plain <Keycap>Up</Keycap> and <Keycap>Down</Keycap> move through the 16 Groove rows and wrap at both ends.
 
-Tap **Enter** on an empty row to initialize it to `06`. Hold Enter and use:
+Tap <Keycap>Enter</Keycap> on an empty row to initialize it to `06`. Hold <Keycap>Enter</Keycap> and use:
 
-- **Left / Right** to decrease or increase only the selected row by one tick.
-- **Down / Up** to decrease or increase the selected row by one while changing its even/odd partner in the opposite direction.
+- <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to decrease or increase only the selected row by one tick.
+- <Keycap>Down</Keycap> / <Keycap>Up</Keycap> to decrease or increase the selected row by one while changing its even/odd partner in the opposite direction.
 
-The paired edit preserves the pair's total duration. For example, Up on the first row of `06 / 06` produces `07 / 05`. At the `01` and `0F` boundaries, an edit that cannot preserve the total is ignored.
+The paired edit preserves the pair's total duration. For example,
+<Keycap>Up</Keycap> on the first row of `06 / 06` produces `07 / 05`. At the
+`01` and `0F` boundaries, an edit that cannot preserve the total is ignored.
 
-Hold **Enter**, then press **Option** to clear the current step back to `--`.
+Hold <Keycap>Enter</Keycap>, then press <Keycap>Option</Keycap> to clear the current step back to `--`.
 
-Hold **Option** and use the directions to choose another groove:
+Hold <Keycap>Option</Keycap> and use the directions to choose another groove:
 
 | Direction | Groove ID change |
 | --- | ---: |
-| Left / Right | `-1` / `+1` |
-| Down / Up | `-10` / `+10` hexadecimal (`-16` / `+16`) |
+| <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | `-1` / `+1` |
+| <Keycap>Down</Keycap> / <Keycap>Up</Keycap> | `-10` / `+10` hexadecimal (`-16` / `+16`) |
 
 Groove selection wraps through all 32 IDs.
 
 ## Selection, clipboard, and interpolation
 
-Begin Selection Mode with **Shift then Option**, release Shift, then extend the range with Up or Down.
+Begin Selection Mode with <KeyCombo keys={['Shift', 'Option']} sequence />,
+release <Keycap>Shift</Keycap>, then extend the range with <Keycap>Up</Keycap>
+or <Keycap>Down</Keycap>.
 
 | Input while selected | Result |
 | --- | --- |
-| Shift then Option | Expand the selection to all 16 steps |
-| Option | Copy and exit Selection Mode |
-| Enter then Option | Cut and exit Selection Mode |
-| Shift + Enter | Interpolate between the first and last selected values |
+| <KeyCombo keys={['Shift', 'Option']} sequence /> | Expand the selection to all 16 steps |
+| <Keycap>Option</Keycap> | Copy and exit Selection Mode |
+| <KeyCombo keys={['Enter', 'Option']} sequence /> | Cut and exit Selection Mode |
+| <KeyCombo keys={['Shift', 'Enter']} /> | Interpolate between the first and last selected values |
 
 Interpolation fills the interior rows with evenly spaced, rounded tick values. It requires at least two selected rows and populated values at both endpoints; the selection stays active after interpolation so the result can be inspected.
 
-After copying or cutting, move to the destination row and press **Shift + Enter** outside Selection Mode to paste. Paste stops at row `0F` if the copied range would extend past the Groove boundary.
+After copying or cutting, move to the destination row and press <KeyCombo keys={['Shift', 'Enter']} /> outside Selection Mode to paste. Paste stops at row `0F` if the copied range would extend past the Groove boundary.
 
 The bottom bar normally displays live notes for all eight tracks. Selection guidance and the two-second copied, pasted, or interpolated notice temporarily replace it.
 
 ## Playback and track state
 
-- **Play** starts or stops the current Phrase context on the selected track so the Groove can be auditioned in place.
-- **Shift + Play** starts or stops the whole Song from the stored Song cursor.
-- **Option + Play** toggles solo for the selected track.
-- **Option then Shift** toggles mute for the selected track.
-- **Shift + Option + Play** clears all mute and solo state.
+- <Keycap>Play</Keycap> starts or stops the current Phrase context on the selected track so the Groove can be auditioned in place.
+- <KeyCombo keys={['Shift', 'Play']} /> starts or stops the whole Song from the stored Song cursor.
+- <KeyCombo keys={['Option', 'Play']} /> toggles solo for the selected track.
+- <KeyCombo keys={['Option', 'Shift']} sequence /> toggles mute for the selected track.
+- <KeyCombo keys={['Shift', 'Option', 'Play']} /> clears all mute and solo state.
 
 The playback mark appears only when the selected track is actively using the displayed groove.
 
 ## Page navigation
 
-Hold **Shift** and press **Down** to return to Phrase.
+Hold <Keycap>Shift</Keycap> and press <Keycap>Down</Keycap> to return to Phrase.

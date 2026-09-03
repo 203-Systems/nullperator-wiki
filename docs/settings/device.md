@@ -15,8 +15,8 @@ change is applied immediately where the platform supports it and saved
 automatically. If saving fails, `CONFIG SAVE FAILED` appears so you can try
 again.
 
-Use Up and Down to choose a row. Selector rows change directly with Left and
-Right; Enter is not required. Hold Enter while using Up or Down for ±10 steps
+Use <Keycap>Up</Keycap> and <Keycap>Down</Keycap> to choose a row. Selector rows change directly with
+<Keycap>Left</Keycap> and <Keycap>Right</Keycap>; <Keycap>Enter</Keycap> is not required. Hold <Keycap>Enter</Keycap> while using <Keycap>Up</Keycap> or <Keycap>Down</Keycap> for ±10 steps
 on numeric rows. Holding a direction repeats after the initial delay.
 
 ## Available rows
@@ -26,10 +26,10 @@ on numeric rows. Holding a direction repeats after the initial delay.
 | MIDI Device | `OFF`, `TRS`, `USB`, `TRS+USB` | Selects MIDI **output** routing and wraps |
 | MIDI Sync | `OFF`, `ON` | Sends transport clock when on; clamps at the ends |
 | Resampler | `NONE`, `LINEAR` | Resampling used when importing a sample; wraps |
-| Volume | `0%`–`100%` | Output gain, ±1 horizontally or ±10 with Enter + Up/Down |
-| Brightness | `0%`–`100%` | Display control, ±1 horizontally or ±10 with Enter + Up/Down |
-| Theme | Current theme name | Press Enter to open Theme |
-| Font | Current font state | Press Enter to open Font |
+| Volume | `0%`–`100%` | Output gain, ±1 horizontally or ±10 with <KeyCombo keys={['Enter', 'Up']} /> or <KeyCombo keys={['Enter', 'Down']} /> |
+| Brightness | `0%`–`100%` | Display control, ±1 horizontally or ±10 with <KeyCombo keys={['Enter', 'Up']} /> or <KeyCombo keys={['Enter', 'Down']} /> |
+| Theme | Current theme name | Press <Keycap>Enter</Keycap> to open Theme |
+| Font | Current font state | Press <Keycap>Enter</Keycap> to open Font |
 
 iOS hides `MIDI DEVICE`, `VOLUME`, and `BRIGHTNESS`; those are managed by the
 native app or by iOS. The remaining rows use the same controls and values.

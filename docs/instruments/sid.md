@@ -28,7 +28,7 @@ The SID instrument drives one oscillator of NullPerator's emulated SID chip. Up 
 | `MODE` | `LP`, `BP`, `HP`, `NOTCH` | `LP` | Shared filter response. |
 | `VOLUME` | `0`–`F` | `F` | Shared SID chip output volume. |
 
-Hold Enter on `ENV ADSR`, use Left / Right to choose a nibble, and use Up / Down to edit it.
+Hold <Keycap>Enter</Keycap> on `ENV ADSR`, use <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to choose a nibble, and use <Keycap>Up</Keycap> / <Keycap>Down</Keycap> to edit it.
 
 ## Shared state
 

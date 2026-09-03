@@ -18,8 +18,8 @@ them does not change your song.
 
 ## What you can change here
 
-Use Up and Down to choose a row. Use Left and Right to change a value or choose
-an action in the bottom bar, then press Enter to run it.
+Use <Keycap>Up</Keycap> and <Keycap>Down</Keycap> to choose a row. Use <Keycap>Left</Keycap> and <Keycap>Right</Keycap> to change a value or choose
+an action in the bottom bar, then press <Keycap>Enter</Keycap> to run it.
 
 | Section | What it does |
 | --- | --- |
@@ -41,10 +41,10 @@ only when you want to move or back up files by hand.
 
 ## Playback values
 
-Change these directly with Left and Right. Hold Enter and use Up or Down for a
+Change these directly with <Keycap>Left</Keycap> and <Keycap>Right</Keycap>. Hold <Keycap>Enter</Keycap> and use <Keycap>Up</Keycap> or <Keycap>Down</Keycap> for a
 larger step on numeric values.
 
-| Row | Left / Right | Enter + Up / Down | Range |
+| Row | <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | <KeyCombo keys={['Enter', 'Up']} /> or <KeyCombo keys={['Enter', 'Down']} /> | Range |
 | --- | --- | --- | --- |
 | Tempo | ±1 BPM | ±10 BPM | 60–400 BPM |
 | Transpose | ±1 semitone | ±12 semitones | −48–+48 |

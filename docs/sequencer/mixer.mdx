@@ -25,27 +25,27 @@ The number below each meter is the stored project gain, from `0` to `99`. Track 
 
 ## Select and adjust
 
-Use **Left** and **Right** to select `T1` through `T8`, then `MASTER`. Selection stops at the ends rather than wrapping.
+Use <Keycap>Left</Keycap> and <Keycap>Right</Keycap> to select `T1` through `T8`, then `MASTER`. Selection stops at the ends rather than wrapping.
 
-Hold **Enter** and press:
+Hold <Keycap>Enter</Keycap> and press:
 
-- **Up** or **Right** to increase the selected gain by one.
-- **Down** or **Left** to decrease it by one.
+- <Keycap>Up</Keycap> or <Keycap>Right</Keycap> to increase the selected gain by one.
+- <Keycap>Down</Keycap> or <Keycap>Left</Keycap> to decrease it by one.
 
 Hold a direction to repeat. Values clamp at `0` and `99`.
 
 ## Mute and solo
 
-- Hold **Option**, then press **Shift** to toggle mute on the selected track.
-- **Option + Play** toggles solo on the selected track.
-- **Shift + Option + Play** clears every mute and solo state.
+- Hold <Keycap>Option</Keycap>, then press <Keycap>Shift</Keycap> to toggle mute on the selected track.
+- <KeyCombo keys={['Option', 'Play']} /> toggles solo on the selected track.
+- <KeyCombo keys={['Shift', 'Option', 'Play']} /> clears every mute and solo state.
 
 `MASTER` is an output gain, not a ninth sequencer track. Mute and solo inputs are ignored when MASTER is selected; clearing all mutes remains available.
 
 ## Playback and navigation
 
-- **Play** starts or stops the whole Song at the stored Song cursor.
-- **Shift + Play** performs the same whole-Song transport action.
-- **Shift + Up** returns to Song.
+- <Keycap>Play</Keycap> starts or stops the whole Song at the stored Song cursor.
+- <KeyCombo keys={['Shift', 'Play']} /> performs the same whole-Song transport action.
+- <KeyCombo keys={['Shift', 'Up']} /> returns to Song.
 
 Mixer has no bottom bar, leaving the full height available to the nine stereo meters.

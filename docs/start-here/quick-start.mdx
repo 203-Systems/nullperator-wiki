@@ -14,20 +14,20 @@ so it does not need a sample or demo file.
 - Make sure audio is ready on your device. See [Use NullPerator anywhere](./platforms)
   if this is your first session.
 - Save any work you want to keep; the first step replaces the current project.
-- Find **Shift**, **Enter**, **Play**, and the directions in
+- Find <Keycap>Shift</Keycap>, <Keycap>Enter</Keycap>, <Keycap>Play</Keycap>, and the directions in
   [Controls at a glance](../controls/buttons).
 
-On Web, choose **Enable sound** before using Enter or Play for the first time.
+On Web, choose **Enable sound** before using <Keycap>Enter</Keycap> or <Keycap>Play</Keycap> for the first time.
 
 In the steps below, “tap” means press and release; “hold” means keep the button
 down.
 
 ## 1. Open a clean project
 
-If an existing song opens on Song, hold Shift and tap Up to open **Project**.
-Place the cursor on **Name**, use Left or Right to select **New** in the bottom
+If an existing song opens on Song, use <KeyCombo keys={['Shift', 'Up']} /> to open **Project**.
+Place the cursor on **Name**, use <Keycap>Left</Keycap> or <Keycap>Right</Keycap> to select **New** in the bottom
 bar, and press <Keycap>Enter</Keycap>. If NullPerator warns that unsaved changes
-will be lost, choose **Yes** and press Enter again.
+will be lost, choose **Yes** and press <Keycap>Enter</Keycap> again.
 
 After choosing New, NullPerator returns to **Song** automatically. Put the
 cursor on row `00`, track `T1`.
@@ -39,9 +39,9 @@ cursor on row `00`, track `T1`.
 ## 2. Make the first pattern
 
 1. Tap <Keycap>Enter</Keycap>. The Song cell becomes `00`.
-2. Hold <Keycap>Shift</Keycap> and tap <Keycap>Right</Keycap> to open **Chain 00**.
+2. Use <KeyCombo keys={['Shift', 'Right']} /> to open **Chain 00**.
 3. At Chain row `00`, tap <Keycap>Enter</Keycap>. The `PH` cell becomes `00`.
-4. Hold Shift and tap Right again to open **Phrase 00**.
+4. Use <KeyCombo keys={['Shift', 'Right']} /> again to open **Phrase 00**.
 
 <InterfaceShot src="img/screens/chain.png" alt="Chain view with PH and TR columns">
   PH chooses a phrase. Leave TR at 0 for now.
@@ -59,10 +59,10 @@ instrument slot does not have a sound until the next step.
 
 ## 4. Give it a sound
 
-1. Hold Shift and tap Right to open **Instrument 00**.
+1. Use <KeyCombo keys={['Shift', 'Right']} /> to open **Instrument 00**.
 2. Tap <Keycap>Down</Keycap> once to move from **Name** to **Type**.
 3. Tap <Keycap>Left</Keycap> once. The type wraps from `NONE` to `OPAL`.
-4. Hold Shift and tap Left to return to Phrase.
+4. Use <KeyCombo keys={['Shift', 'Left']} /> to return to Phrase.
 
 <InterfaceShot src="img/screens/instrument-opal.png" alt="Instrument 00 with Type set to OPAL">
   When Type reads OPAL and the settings appear, Instrument 00 is ready.
@@ -71,11 +71,11 @@ instrument slot does not have a sound until the next step.
 ## 5. Hear and play it
 
 Back on Phrase row `00`, hold <Keycap>Enter</Keycap> while the cursor is on the
-`C3` note. You should hear the note immediately; release Enter to stop the
+`C3` note. You should hear the note immediately; release <Keycap>Enter</Keycap> to stop the
 preview.
 
 Tap <Keycap>Play</Keycap> to hear the pattern in sequence. A filled triangle in
-the top bar means playback is active. Tap Play again to stop.
+the top bar means playback is active. Tap <Keycap>Play</Keycap> again to stop.
 
 If there is no sound, check these three things:
 
@@ -89,10 +89,10 @@ If there is no sound, check these three things:
   Name actions appear in the bottom bar: New, Load, Save, and Rename.
 </InterfaceShot>
 
-1. Hold Shift and tap Left to go from Phrase to Chain.
-2. Hold Shift and tap Left again to go from Chain to Song.
-3. Hold Shift and tap Up to open Project.
-4. Focus **Name**, choose **Rename** in the bottom bar, and press Enter.
+1. Use <KeyCombo keys={['Shift', 'Left']} /> to go from Phrase to Chain.
+2. Use <KeyCombo keys={['Shift', 'Left']} /> again to go from Chain to Song.
+3. Use <KeyCombo keys={['Shift', 'Up']} /> to open Project.
+4. Focus **Name**, choose **Rename** in the bottom bar, and press <Keycap>Enter</Keycap>.
 5. Enter a non-empty name and choose **Save**.
 6. Back on Project, choose **Save** in the Name bottom bar.
 

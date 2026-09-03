@@ -25,66 +25,73 @@ Transpose is shown in signed decimal. `+12` raises the phrase by one octave and 
 
 ## Try this
 
-1. Put the cursor on a filled `PH` cell and tap **Play** to hear the Chain from
-   that row. Tap Play again to stop.
-2. Move to its `TR` cell, hold **Enter**, and tap **Right** once. The transpose
+1. Put the cursor on a filled `PH` cell and tap <Keycap>Play</Keycap> to hear the Chain from
+   that row. Tap <Keycap>Play</Keycap> again to stop.
+2. Move to its `TR` cell, hold <Keycap>Enter</Keycap>, and tap <Keycap>Right</Keycap> once. The transpose
    becomes `+01`.
-3. Tap Play again. The Phrase now plays one semitone higher.
-4. Hold Enter and tap **Left** to return the transpose to `+00`.
+3. Tap <Keycap>Play</Keycap> again. The Phrase now plays one semitone higher.
+4. Hold <Keycap>Enter</Keycap> and tap <Keycap>Left</Keycap> to return the transpose to `+00`.
 
 ## Navigation and editing
 
-Directions move the cursor through the fixed 16 × 2 grid. Hold **Enter** to edit without moving the cursor:
+Directions move the cursor through the fixed 16 × 2 grid. Hold <Keycap>Enter</Keycap> to edit without moving the cursor:
 
-| Column | Left / Right | Down / Up |
+| Column | <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | <Keycap>Down</Keycap> / <Keycap>Up</Keycap> |
 | --- | ---: | ---: |
 | `PH` | `-1` / `+1` phrase | `-10` / `+10` in hexadecimal (`-16` / `+16`) |
 | `TR` | `-1` / `+1` semitone | `-12` / `+12` semitones |
 
 The transpose value saturates at `-99` and `+99`; it does not wrap through an unsigned hexadecimal value.
 
-Tap **Enter** on `PH` to recall the last phrase ID. A second consecutive Enter allocates a new phrase and writes its ID into the row. On `TR`, Enter recalls the last non-zero transpose.
+Tap <Keycap>Enter</Keycap> on `PH` to recall the last phrase ID. A second
+consecutive <Keycap>Enter</Keycap> allocates a new phrase and writes its ID into
+the row. On `TR`, <Keycap>Enter</Keycap> recalls the last non-zero transpose.
 
-Hold **Enter** and **Option** together to cut the current cell. Cutting `PH` leaves its transpose data stored but hidden until a phrase is assigned again; cutting `TR` resets it to `+00`.
+Hold <Keycap>Enter</Keycap> and <Keycap>Option</Keycap> together to cut the current cell. Cutting `PH` leaves its transpose data stored but hidden until a phrase is assigned again; cutting `TR` resets it to `+00`.
 
 ## Change context with Option
 
-Hold **Option** without Enter or Shift:
+Hold <Keycap>Option</Keycap> without <Keycap>Enter</Keycap> or <Keycap>Shift</Keycap>:
 
-- **Left / Right** selects the previous or next track and resolves the chain at the current Song row.
-- **Up / Down** loads the chain from the adjacent Song row on the selected track. If that Song cell is empty or the Song edge has been reached, the Chain view stays where it is.
+- <Keycap>Left</Keycap> / <Keycap>Right</Keycap> selects the previous or next track and resolves the chain at the current Song row.
+- <Keycap>Up</Keycap> / <Keycap>Down</Keycap> loads the chain from the adjacent Song row on the selected track. If that Song cell is empty or the Song edge has been reached, the Chain view stays where it is.
 
 The top chain ID and the selected track in the bottom bar move with this context. The cell cursor remains on the same Chain row and column.
 
 ## Selection, copy, and clone
 
-Begin Selection Mode with **Shift then Option**, then release Shift and extend the rectangle with the directions.
+Begin Selection Mode with <KeyCombo keys={['Shift', 'Option']} sequence />, then release <Keycap>Shift</Keycap> and extend the rectangle with the directions.
 
 | Input while selected | Result |
 | --- | --- |
-| Shift then Option | Expand to both columns; repeat to expand to all 16 rows |
-| Option | Copy the selection and exit Selection Mode |
-| Enter + Option | Cut the selection and exit Selection Mode |
-| Enter + directions | Adjust every selected cell |
-| Play | Play the current Chain context |
+| <KeyCombo keys={['Shift', 'Option']} sequence /> | Expand to both columns; repeat to expand to all 16 rows |
+| <Keycap>Option</Keycap> | Copy the selection and exit Selection Mode |
+| <KeyCombo keys={['Enter', 'Option']} /> | Cut the selection and exit Selection Mode |
+| <Keycap>Enter</Keycap> + direction | Adjust every selected cell |
+| <Keycap>Play</Keycap> | Play the current Chain context |
 
-Paste a copied Chain selection with **Shift + Enter** after Selection Mode has closed. Clipboard data stays column-aligned, so phrase IDs and transposes cannot cross into one another.
+Paste a copied Chain selection with <KeyCombo keys={['Shift', 'Enter']} /> after Selection Mode has closed. Clipboard data stays column-aligned, so phrase IDs and transposes cannot cross into one another.
 
-To clone one referenced phrase, place the cursor in `PH`, begin selection with **Shift then Option**, keep Shift held, release Option, and press **Enter** immediately. NullPerator allocates a new phrase, copies all of its steps, and replaces the `PH` cell with the clone's ID. The clone gesture is not available in `TR`.
+To clone one referenced phrase, place the cursor in `PH`, begin selection with
+<KeyCombo keys={['Shift', 'Option']} sequence />, keep <Keycap>Shift</Keycap>
+held, release <Keycap>Option</Keycap>, and press <Keycap>Enter</Keycap>
+immediately. NullPerator allocates a new phrase, copies all of its steps, and
+replaces the `PH` cell with the clone's ID. The clone gesture is not available
+in `TR`.
 
 ## Playback and track state
 
-- **Play** starts or stops this chain from the highlighted Chain row, on the selected track.
-- **Shift + Play** starts or stops the whole Song from the stored Song cursor.
-- **Option + Play** toggles solo for the selected track.
-- **Option then Shift** toggles mute for the selected track.
-- **Shift + Option + Play** clears all track mutes and solo state.
+- <Keycap>Play</Keycap> starts or stops this chain from the highlighted Chain row, on the selected track.
+- <KeyCombo keys={['Shift', 'Play']} /> starts or stops the whole Song from the stored Song cursor.
+- <KeyCombo keys={['Option', 'Play']} /> toggles solo for the selected track.
+- <KeyCombo keys={['Option', 'Shift']} sequence /> toggles mute for the selected track.
+- <KeyCombo keys={['Shift', 'Option', 'Play']} /> clears all track mutes and solo state.
 
 The playback mark follows every track currently using the displayed chain. The bottom bar shows live notes for `T1`–`T8` unless selection, clipboard, or editing help temporarily replaces it.
 
 ## Next
 
-Hold **Shift** and press:
+Hold <Keycap>Shift</Keycap> and press:
 
-- **Left** → Song
-- **Right** → Phrase
+- <Keycap>Left</Keycap> → Song
+- <Keycap>Right</Keycap> → Phrase

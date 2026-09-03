@@ -8,8 +8,8 @@ description: Page playback, Song and Live transport, mute, and solo.
 
 <Keycap>Play</Keycap> is contextual. A plain press starts from the current Song,
 Chain, Phrase, Table, Groove, or selection context; tapping it while active
-stops playback. On pages with local playback, Shift + Play requests full Song
-transport. In Live, Shift + Play starts the focused track or selected span when
+stops playback. On pages with local playback, <KeyCombo keys={['Shift', 'Play']} /> requests full Song
+transport. In Live, <KeyCombo keys={['Shift', 'Play']} /> starts the focused track or selected span when
 transport is stopped, or queues that same target to stop while transport is
 running.
 
@@ -90,21 +90,23 @@ painted as though it had a chain.
 
 ## Song and Live
 
-In Song, hold Option and press either horizontal direction to switch the
+In Song, hold <Keycap>Option</Keycap> and press either horizontal direction to switch the
 two-item bottom selector between **SONG** and **LIVE**. The selector wraps; no
 extra arrow prompt is required.
 
-In Live, Enter then Play starts the focused item immediately. Left then Play
+In Live, <KeyCombo keys={['Enter', 'Play']} sequence /> starts the focused item immediately.
+<KeyCombo keys={['Left', 'Play']} sequence />
 cues the current Song row across all eight tracks.
 
-Option + Up/Down jumps between populated Song sections.
+<KeyCombo keys={['Option', 'Up']} /> or <KeyCombo keys={['Option', 'Down']} /> jumps between populated Song sections.
 
 ## Mute and solo
 
-The order matters because Shift then Option starts Selection. Option then Shift
+The order matters because <KeyCombo keys={['Shift', 'Option']} sequence /> starts Selection. <KeyCombo keys={['Option', 'Shift']} sequence />
 toggles mute for the current track, or for the horizontal span of an active
-Song selection. Option then Play toggles solo. To clear every mute and solo,
-hold Option, press Shift while keeping Option held, and then press Play. Play
+Song selection. <KeyCombo keys={['Option', 'Play']} sequence /> toggles solo.
+To clear every mute and solo, use
+<KeyCombo keys={['Option', 'Shift', 'Play']} sequence />. <Keycap>Play</Keycap>
 must be last; this order avoids leaving the grid in Selection Mode.
 
 Master in Mixer has no mute or solo action.

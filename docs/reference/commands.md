@@ -43,8 +43,8 @@ or instrument does not implement has no effect.
 
 ## Editing command fields
 
-Left and Right move between a command mnemonic and its parameter field.
-Changing a mnemonic updates the help text for that command. Hold Enter on a
+<Keycap>Left</Keycap> and <Keycap>Right</Keycap> move between a command mnemonic and its parameter field.
+Changing a mnemonic updates the help text for that command. Hold <Keycap>Enter</Keycap> on a
 parameter to address and adjust an individual hexadecimal digit.
 
 Parameters are hexadecimal even when their musical meaning is a decimal count.

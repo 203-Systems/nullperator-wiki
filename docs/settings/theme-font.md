@@ -18,10 +18,10 @@ Theme colors are named by where they are used, such as `text.normal` or
 Select `NAME` to choose **NEW**, **LOAD**, **SAVE**, or **RENAME** in the bottom
 bar. Select a color row to edit its RGB channels:
 
-- Left and Right choose R, G, or B.
-- Hold Enter and use Left or Right for ±1.
-- Hold Enter and use Up or Down for ±10.
-- Hold Enter and press Option to reset the selected component to its default.
+- <Keycap>Left</Keycap> and <Keycap>Right</Keycap> choose R, G, or B.
+- <KeyCombo keys={['Enter', 'Left']} /> or <KeyCombo keys={['Enter', 'Right']} /> changes the selected component by ±1.
+- <KeyCombo keys={['Enter', 'Up']} /> or <KeyCombo keys={['Enter', 'Down']} /> changes it by ±10.
+- <KeyCombo keys={['Enter', 'Option']} /> resets the selected component to its default.
 - Every component is clamped to 0–255.
 
 Changes preview immediately and are saved when you leave the page.
@@ -77,7 +77,7 @@ The Font page has two fields: `CASE` and `FONT`.
 
 ### Text Case
 
-Use Left and Right on `CASE` to cycle among:
+Use <Keycap>Left</Keycap> and <Keycap>Right</Keycap> on `CASE` to cycle among:
 
 | Choice | UI labels become |
 | --- | --- |

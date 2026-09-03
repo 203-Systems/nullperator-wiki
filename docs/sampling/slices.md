@@ -6,7 +6,7 @@ description: Add, move, delete, audition, and automatically distribute up to 16 
 
 # Slices
 
-Select `SLICES` on a Sample instrument and press Enter to open the Slices page. A sample must already be assigned, and tracker playback must be stopped.
+Select `SLICES` on a Sample instrument and press <Keycap>Enter</Keycap> to open the Slices page. A sample must already be assigned, and tracker playback must be stopped.
 
 Each Sample instrument stores up to **16 ordered slice starts**. Slice playback begins at the selected point and stops immediately before the next later point, or at the end of the sample.
 
@@ -16,24 +16,24 @@ Each Sample instrument stores up to **16 ordered slice starts**. Slice playback 
 
 ## Quickly chop a drum loop
 
-1. Move Down to the slice count and choose `8` or `16`.
-2. Move to **Auto Slice** and press Enter.
+1. Move <Keycap>Down</Keycap> to the slice count and choose `8` or `16`.
+2. Move to **Auto Slice** and press <Keycap>Enter</Keycap>.
 3. If slices already exist, choose **Replace** and confirm.
-4. Hold Play on a slice to hear it.
+4. Hold <Keycap>Play</Keycap> on a slice to hear it.
 5. Return to Phrase. Notes `C2` upward now play the slices in order.
 
 ## Waveform controls
 
 | Input | Result |
 | --- | --- |
-| Left / Right | Select the previous or next slice slot. |
-| Enter on an empty slot | Add a slice at the suggested midpoint. |
-| Hold Enter + Left / Right | Move the selected slice by a fine screen-relative step. |
-| Hold Enter + Up / Down | Move it by a coarse screen-relative step. |
-| Shift + Enter | Delete the selected slice and compact the remaining slots. |
-| Option + Up / Down | Zoom in or out around the selected slice. |
-| Hold Play | Audition only the selected slice; release to stop. |
-| Shift + Left | Return to the Sample instrument. |
+| <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | Select the previous or next slice slot. |
+| <Keycap>Enter</Keycap> on an empty slot | Add a slice at the suggested midpoint. |
+| <KeyCombo keys={['Enter', 'Left']} /> or <KeyCombo keys={['Enter', 'Right']} /> | Move the selected slice by a fine screen-relative step. |
+| <KeyCombo keys={['Enter', 'Up']} /> or <KeyCombo keys={['Enter', 'Down']} /> | Move it by a coarse screen-relative step. |
+| <KeyCombo keys={['Shift', 'Enter']} /> | Delete the selected slice and compact the remaining slots. |
+| <KeyCombo keys={['Option', 'Up']} /> or <KeyCombo keys={['Option', 'Down']} /> | Zoom in or out around the selected slice. |
+| Hold <Keycap>Play</Keycap> | Audition only the selected slice; release to stop. |
+| <KeyCombo keys={['Shift', 'Left']} /> | Return to the Sample instrument. |
 
 Slice points stay in order. If you move one past a neighbour, NullPerator keeps
 the set ordered for you. A slice with no length cannot be previewed.
@@ -42,11 +42,11 @@ The first slice can begin at the very start of the WAV.
 
 ## Auto Slice
 
-Use Up / Down without a modifier to move from the waveform to the count and **Auto Slice** rows.
+Use <Keycap>Up</Keycap> / <Keycap>Down</Keycap> without a modifier to move from the waveform to the count and **Auto Slice** rows.
 
-1. Select the slice count and change it with Left / Right. Valid values are 1–16.
-2. Move to **Auto Slice** and press Enter.
-3. If the instrument already has slices, choose **Cancel** or **Replace**, then press Enter.
+1. Select the slice count and change it with <Keycap>Left</Keycap> / <Keycap>Right</Keycap>. Valid values are 1–16.
+2. Move to **Auto Slice** and press <Keycap>Enter</Keycap>.
+3. If the instrument already has slices, choose **Cancel** or **Replace**, then press <Keycap>Enter</Keycap>.
 
 Values 2–16 distribute that many starts evenly over the file. A count of **1 clears all slice points**.
 

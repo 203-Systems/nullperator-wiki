@@ -23,7 +23,7 @@ The top bar prefixes the table number with its entry context:
 
 Both contexts edit the same 32-table bank. The prefix records where Up should return and which track/instrument reference should be followed; it is not a second copy of table data.
 
-Hold **Shift** and press **Right** from a Phrase Table to inspect the Instrument Table context. Hold Shift and press **Left** from an Instrument Table to return to Phrase Table context.
+Hold <Keycap>Shift</Keycap> and press <Keycap>Right</Keycap> from a Phrase Table to inspect the Instrument Table context. Hold <Keycap>Shift</Keycap> and press <Keycap>Left</Keycap> from an Instrument Table to return to Phrase Table context.
 
 ## Columns
 
@@ -37,56 +37,59 @@ An empty command is `---`; an empty value is `0000`. The bottom bar normally sho
 
 ## Edit commands and values
 
-Directions move through the fixed 16 × 6 grid. Tap **Enter** to recall the last command or value for the current cell.
+Directions move through the fixed 16 × 6 grid. Tap <Keycap>Enter</Keycap> to recall the last command or value for the current cell.
 
-Hold **Enter** to edit:
+Hold <Keycap>Enter</Keycap> to edit:
 
-| Cell | Left / Right | Down / Up |
+| Cell | <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | <Keycap>Down</Keycap> / <Keycap>Up</Keycap> |
 | --- | --- | --- |
 | FX command | Previous / next command | Coarse alphabetic command jump |
 | Four-digit value | Move the active digit | Decrease / increase that hex digit |
 
 The highlighted digit corresponds to a step of `1000`, `0100`, `0010`, or `0001`. Each command applies its own valid range, so the value may clamp rather than wrap.
 
-Hold **Enter** and **Option** together to cut a cell. Cutting an FX command clears its paired value as well.
+Hold <Keycap>Enter</Keycap> and <Keycap>Option</Keycap> together to cut a cell. Cutting an FX command clears its paired value as well.
 
 ## Select the table and track context
 
-Hold **Option** without Enter or Shift:
+Hold <Keycap>Option</Keycap> without <Keycap>Enter</Keycap> or <Keycap>Shift</Keycap>:
 
-- **Left / Right** selects the previous or next track, then resolves the relevant Phrase or Instrument table reference on that track.
-- **Up / Down** changes the table ID by `10` hexadecimal, wrapping between the `0x` and `1x` banks while preserving the low digit.
+- <Keycap>Left</Keycap> / <Keycap>Right</Keycap> selects the previous or next track, then resolves the relevant Phrase or Instrument table reference on that track.
+- <Keycap>Up</Keycap> / <Keycap>Down</Keycap> changes the table ID by `10` hexadecimal, wrapping between the `0x` and `1x` banks while preserving the low digit.
 
-The top prefix and table number receive focus while Option is held; the grid cursor does not move.
+The top prefix and table number receive focus while <Keycap>Option</Keycap> is held; the grid cursor does not move.
 
 ## Selection and clipboard
 
-Begin Selection Mode with **Shift then Option**, then release Shift and extend the rectangle with the directions.
+Begin Selection Mode with <KeyCombo keys={['Shift', 'Option']} sequence />, then release <Keycap>Shift</Keycap> and extend the rectangle with the directions.
 
 | Input while selected | Result |
 | --- | --- |
-| Shift then Option | Expand across all six columns; repeat to select all 16 rows |
-| Option | Copy and exit Selection Mode |
-| Enter + Option | Cut and exit Selection Mode |
-| Enter + directions | Adjust every selected cell |
-| Play | Play the current Phrase context |
+| <KeyCombo keys={['Shift', 'Option']} sequence /> | Expand across all six columns; repeat to select all 16 rows |
+| <Keycap>Option</Keycap> | Copy and exit Selection Mode |
+| <KeyCombo keys={['Enter', 'Option']} /> | Cut and exit Selection Mode |
+| <Keycap>Enter</Keycap> + direction | Adjust every selected cell |
+| <Keycap>Play</Keycap> | Play the current Phrase context |
 
-Paste with **Shift + Enter** after Selection Mode closes. Table clipboard data remains type-aligned. It can move between `P` and `I` Table contexts, and compatible FX command/value pairs can also be transferred between Table and Phrase. NullPerator rejects a command-to-value or NOTE-to-FX reinterpretation.
+Paste with <KeyCombo keys={['Shift', 'Enter']} /> after Selection Mode closes. Table clipboard data remains type-aligned. It can move between `P` and `I` Table contexts, and compatible FX command/value pairs can also be transferred between Table and Phrase. NullPerator rejects a command-to-value or NOTE-to-FX reinterpretation.
 
-On the value of a `TBL` command, the immediate clone gesture—**Shift then Option**, keep Shift held, release Option, then press **Enter**—duplicates the referenced table into a free slot and updates that value.
+On the value of a `TBL` command, the immediate clone gesture—
+<KeyCombo keys={['Shift', 'Option']} sequence />, keep <Keycap>Shift</Keycap>
+held, release <Keycap>Option</Keycap>, then press <Keycap>Enter</Keycap>—
+duplicates the referenced table into a free slot and updates that value.
 
 ## Playback and track state
 
-- **Play** starts or stops the current Phrase context on the selected track. The Table cursor row does not become a Phrase start row.
-- **Shift + Play** starts or stops the whole Song from the stored Song cursor.
-- **Option + Play** toggles solo for the selected track.
-- **Option then Shift** toggles mute for the selected track.
-- **Shift + Option + Play** clears all track mutes and solo state.
+- <Keycap>Play</Keycap> starts or stops the current Phrase context on the selected track. The Table cursor row does not become a Phrase start row.
+- <KeyCombo keys={['Shift', 'Play']} /> starts or stops the whole Song from the stored Song cursor.
+- <KeyCombo keys={['Option', 'Play']} /> toggles solo for the selected track.
+- <KeyCombo keys={['Option', 'Shift']} sequence /> toggles mute for the selected track.
+- <KeyCombo keys={['Shift', 'Option', 'Play']} /> clears all track mutes and solo state.
 
 ## Page navigation
 
-Hold **Shift** and use:
+Hold <Keycap>Shift</Keycap> and use:
 
-- **Up** → Phrase from a `P` table, or Instrument from an `I` table
-- **Right** → Instrument Table from Phrase Table
-- **Left** → Phrase Table from Instrument Table
+- <Keycap>Up</Keycap> → Phrase from a `P` table, or Instrument from an `I` table
+- <Keycap>Right</Keycap> → Instrument Table from Phrase Table
+- <Keycap>Left</Keycap> → Phrase Table from Instrument Table

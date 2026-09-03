@@ -15,7 +15,7 @@ The same screen has two transport behaviors:
 - **SONG** plays the arrangement linearly.
 - **LIVE** cues chains without leaving the grid, so rows can be recombined during a performance.
 
-Hold **Option** and press either **Left** or **Right** to switch between the two. The selector wraps because it contains exactly two choices.
+Hold <Keycap>Option</Keycap> and press either <Keycap>Left</Keycap> or <Keycap>Right</Keycap> to switch between the two. The selector wraps because it contains exactly two choices.
 
 <InterfaceShot src="img/screens/song.png" alt="NullPerator Song view with eight track columns and contextual bottom bar">
   Eight tracks share one 128-row arrangement; sixteen rows are visible at once.
@@ -37,13 +37,14 @@ An empty cell is not a rest inside a chain. It means that the Song row does not 
 
 ## Try this
 
-1. Put the cursor on a filled chain cell and tap **Play**. Song begins at the
-   selected row; tap Play again to stop.
-2. Hold **Option** and tap **Left** or **Right**. The title changes from `SONG`
+1. Put the cursor on a filled chain cell and tap <Keycap>Play</Keycap>. Song begins at the
+   selected row; tap <Keycap>Play</Keycap> again to stop.
+2. Hold <Keycap>Option</Keycap> and tap <Keycap>Left</Keycap> or <Keycap>Right</Keycap>. The title changes from `SONG`
    to `LIVE`.
-3. In LIVE, move to another filled cell and tap Play. That chain is queued for
+3. In LIVE, move to another filled cell and tap <Keycap>Play</Keycap>. That chain is queued for
    the selected track.
-4. Switch back to SONG with Option + Left or Right.
+4. Switch back to SONG with <KeyCombo keys={['Option', 'Left']} /> or
+   <KeyCombo keys={['Option', 'Right']} />.
 
 The [first-loop walkthrough](../start-here/first-loop) shows how to create the
 Phrase and Chain used by a Song cell.
@@ -52,32 +53,32 @@ Phrase and Chain used by a Song cell.
 
 Use the directions to move through the grid. Moving past the top or bottom of the 16-row window scrolls through the full 128-row Song.
 
-Hold **Enter** to edit the current chain ID:
+Hold <Keycap>Enter</Keycap> to edit the current chain ID:
 
 | Direction | Change |
 | --- | ---: |
-| Left / Right | `-1` / `+1` |
-| Down / Up | `-10` / `+10` in hexadecimal (`-16` / `+16`) |
+| <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | `-1` / `+1` |
+| <Keycap>Down</Keycap> / <Keycap>Up</Keycap> | `-10` / `+10` in hexadecimal (`-16` / `+16`) |
 
-Release Enter to commit the edit. Holding a direction repeats the change.
+Release <Keycap>Enter</Keycap> to commit the edit. Holding a direction repeats the change.
 
-Tap **Enter** to use the last-chain entry behavior:
+Tap <Keycap>Enter</Keycap> to use the last-chain entry behavior:
 
 - On an empty cell, the last selected chain ID is inserted.
 - On a filled cell, that ID becomes the last selected chain.
-- A second consecutive Enter allocates a new chain and places its ID in the cell.
+- A second consecutive <Keycap>Enter</Keycap> allocates a new chain and places its ID in the cell.
 
-Hold **Enter** and **Option** together to cut the current cell. The press order does not matter.
+Hold <Keycap>Enter</Keycap> and <Keycap>Option</Keycap> together to cut the current cell. The press order does not matter.
 
-Hold **Option** and press **Up** or **Down** to jump to the previous or next populated section on the current track. Sections are blocks of chain cells separated by empty rows; an entirely empty or gapless track does not jump.
+Hold <Keycap>Option</Keycap> and press <Keycap>Up</Keycap> or <Keycap>Down</Keycap> to jump to the previous or next populated section on the current track. Sections are blocks of chain cells separated by empty rows; an entirely empty or gapless track does not jump.
 
 ## Selection and clipboard
 
 Selection is deliberately order-sensitive so that it can share the same four product keys as mute:
 
-1. Hold **Shift**.
-2. Press **Option** to begin a selection at the cursor.
-3. Release Shift, then use the directions to extend the selection.
+1. Hold <Keycap>Shift</Keycap>.
+2. Press <Keycap>Option</Keycap> to begin a selection at the cursor.
+3. Release <Keycap>Shift</Keycap>, then use the directions to extend the selection.
 
 The Song clipboard can hold at most the visible **8 × 16** grid. A selection cannot grow beyond 16 rows.
 
@@ -86,49 +87,53 @@ While a selection is active:
 | Input | Result |
 | --- | --- |
 | Directions | Extend or shrink the selected rectangle |
-| Shift then Option | First select the full row width; repeat to select the full visible grid |
-| Option | Copy, then leave Selection Mode |
-| Enter + Option | Cut, then leave Selection Mode |
-| Enter + directions | Adjust every selected cell using the same fine/coarse steps as a single cell |
-| Play | Run the current transport action; in LIVE, cue the selected track span |
+| <KeyCombo keys={['Shift', 'Option']} sequence /> | First select the full row width; repeat to select the full visible grid |
+| <Keycap>Option</Keycap> | Copy, then leave Selection Mode |
+| <KeyCombo keys={['Enter', 'Option']} /> | Cut, then leave Selection Mode |
+| <Keycap>Enter</Keycap> + direction | Adjust every selected cell using the same fine/coarse steps as a single cell |
+| <Keycap>Play</Keycap> | Run the current transport action; in LIVE, cue the selected track span |
 
-After copying or cutting, hold **Shift** and press **Enter** to paste at the cursor. A clipboard from Chain, Phrase, Table, or Groove is intentionally incompatible with Song and will not be pasted.
+After copying or cutting, hold <Keycap>Shift</Keycap> and press <Keycap>Enter</Keycap> to paste at the cursor. A clipboard from Chain, Phrase, Table, or Groove is intentionally incompatible with Song and will not be pasted.
 
 ### Clone a chain
 
-To duplicate the chain referenced by one Song cell, begin selection with **Shift then Option**, keep Shift held, release Option, and press **Enter** as the next action. NullPerator allocates a new chain, copies all 16 phrase and transpose rows, and replaces the cell with the new ID.
+To duplicate the chain referenced by one Song cell, begin selection with
+<KeyCombo keys={['Shift', 'Option']} sequence />, keep <Keycap>Shift</Keycap>
+held, release <Keycap>Option</Keycap>, and press <Keycap>Enter</Keycap> as the
+next action. NullPerator allocates a new chain, copies all 16 phrase and
+transpose rows, and replaces the cell with the new ID.
 
 ## Playback in Song mode
 
-- **Play** starts the whole arrangement at the selected Song row; press it again to stop.
-- **Shift + Play** uses the same Song transport while in SONG mode.
-- **Option + Play** toggles solo for the current track. With a horizontal Song selection, it solos that selected track span.
-- Hold **Option**, then press **Shift** to toggle mute for the current track or selected track span.
-- **Shift + Option + Play** clears every mute and solo state.
+- <Keycap>Play</Keycap> starts the whole arrangement at the selected Song row; press it again to stop.
+- <KeyCombo keys={['Shift', 'Play']} /> uses the same Song transport while in SONG mode.
+- <KeyCombo keys={['Option', 'Play']} /> toggles solo for the current track. With a horizontal Song selection, it solos that selected track span.
+- Hold <Keycap>Option</Keycap>, then press <Keycap>Shift</Keycap> to toggle mute for the current track or selected track span.
+- <KeyCombo keys={['Shift', 'Option', 'Play']} /> clears every mute and solo state.
 
 <Admonition type="note" title="Modifier order">
-**Shift then Option** begins a selection. **Option then Shift** toggles mute. This distinction is intentional.
+<KeyCombo keys={['Shift', 'Option']} sequence /> begins a selection. <KeyCombo keys={['Option', 'Shift']} sequence /> toggles mute. This distinction is intentional.
 </Admonition>
 
 ## Playback in Live mode
 
 Live mode uses the selected Song row as a cue source.
 
-- **Play** cues the chain on the current track. If transport is stopped, Live starts with that track. During playback, the cue normally takes effect at the next chain boundary.
-- Press **Play** again on the same queued item to tighten the cue to the next phrase boundary.
-- **Enter + Play** cues the current track immediately, at the next tick boundary.
-- Hold **Left**, then press **Play** to cue the current row across all eight tracks.
-- During playback, **Shift + Play** queues the current track to stop. Repeating the chord tightens the stop from a chain boundary to a phrase boundary.
+- <Keycap>Play</Keycap> cues the chain on the current track. If transport is stopped, Live starts with that track. During playback, the cue normally takes effect at the next chain boundary.
+- Press <Keycap>Play</Keycap> again on the same queued item to tighten the cue to the next phrase boundary.
+- <KeyCombo keys={['Enter', 'Play']} /> cues the current track immediately, at the next tick boundary.
+- Hold <Keycap>Left</Keycap>, then press <Keycap>Play</Keycap> to cue the current row across all eight tracks.
+- During playback, <KeyCombo keys={['Shift', 'Play']} /> queues the current track to stop. Repeating the chord tightens the stop from a chain boundary to a phrase boundary.
 
 Only playable cells are queued. Empty Song cells are ignored rather than shown as active playback.
 
 ## Next
 
-Hold **Shift** and use:
+Hold <Keycap>Shift</Keycap> and use:
 
-- **Right** → Chain
-- **Up** → Project
-- **Down** → Mixer
+- <Keycap>Right</Keycap> → Chain
+- <Keycap>Up</Keycap> → Project
+- <Keycap>Down</Keycap> → Mixer
 
 The [controls guide](../controls/buttons) maps these shared action names to
 NullPerator hardware, Web, and iOS.

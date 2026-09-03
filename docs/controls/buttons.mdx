@@ -6,8 +6,8 @@ description: Learn the shared control names, then match them to your device.
 
 # Controls at a glance
 
-NullPerator uses the same actions everywhere: **Shift**, **Option**, **Enter**,
-**Play**, and four directions. The visualizer shows that shared control set;
+NullPerator uses the same actions everywhere: <Keycap>Shift</Keycap>, <Keycap>Option</Keycap>, <Keycap>Enter</Keycap>,
+<Keycap>Play</Keycap>, and four directions. The visualizer shows that shared control set;
 the table below maps it to your device.
 
 <ControlMap />
@@ -65,15 +65,15 @@ The wording tells you whether to tap or hold a control:
 
 | Wording | What to do |
 | --- | --- |
-| **Tap Enter** | Press Enter and release it. |
-| **Hold Enter** | Keep Enter down until the step tells you to release it. |
-| **Shift + Right** | Hold Shift, tap Right, then release Shift. |
-| **Shift then Option** | Press Shift first, keep it held, then press Option. |
+| <Keycap>Enter</Keycap> | Tap and release <Keycap>Enter</Keycap>. |
+| Hold <Keycap>Enter</Keycap> | Keep <Keycap>Enter</Keycap> down until the step tells you to release it. |
+| <KeyCombo keys={['Shift', 'Right']} /> | Hold <Keycap>Shift</Keycap>, tap <Keycap>Right</Keycap>, then release <Keycap>Shift</Keycap>. |
+| <KeyCombo keys={['Shift', 'Option']} sequence /> | Press <Keycap>Shift</Keycap> first, keep it held, then press <Keycap>Option</Keycap>. |
 
 A plus sign means the controls are held together. **Then** means their order
 matters: press the first control, keep it held, and then press the second. This
-distinction is important because **Shift then Option** begins a selection,
-while **Option then Shift** toggles mute.
+distinction is important because <KeyCombo keys={['Shift', 'Option']} sequence /> begins a selection,
+while <KeyCombo keys={['Option', 'Shift']} sequence /> toggles mute.
 
 ## Find the controls on your device
 

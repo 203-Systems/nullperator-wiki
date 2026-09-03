@@ -20,7 +20,7 @@ NullPerator can allocate up to **16 MIDI instruments** at once.
 2. Set the instrument Type to `MIDI`.
 3. Set `CHANNEL` to the receiving instrument's channel.
 4. Optionally choose a `PROGRAM`.
-5. Return to Phrase, enter a note with this instrument, and press Play.
+5. Return to Phrase, enter a note with this instrument, and press <Keycap>Play</Keycap>.
 
 If nothing sounds, check the receiving device's channel, volume, and MIDI input
 indicator before changing Phrase data.
@@ -34,7 +34,7 @@ indicator before changing Phrase data.
 | `LENGTH` | `00`–`FF` | `00` | Gate length in tracker ticks. `00` holds until another event stops the note. |
 | `PROGRAM` | `--`, `00`–`7F` | `--` | Program Change sent at playback start. `--` disables start-time Program Change; choosing a numeric program while playing sends it immediately. |
 | `AUTOMATION` | `NO`, `YES` | `NO` | Advances the attached table on instrument triggers when enabled. |
-| `TABLE` | `--`, `00`–`1F` | `--` | Table attached to this instrument. Enter assigns the first free table. |
+| `TABLE` | `--`, `00`–`1F` | `--` | Table attached to this instrument. <Keycap>Enter</Keycap> assigns the first free table. |
 
 `VOLUME` controls MIDI CC 7, not Note On velocity. Notes initially use velocity 127; tracker FX can change velocity for subsequent notes.
 

@@ -11,7 +11,7 @@ description: Start, open, save, rename, and delete projects.
 </InterfaceShot>
 
 Select `NAME` on the Project page. The bottom bar offers **NEW**, **LOAD**,
-**SAVE**, and **RENAME**. Move between them with Left and Right and press Enter
+**SAVE**, and **RENAME**. Move between them with <Keycap>Left</Keycap> and <Keycap>Right</Keycap> and press <Keycap>Enter</Keycap>
 to run the selected action.
 
 ## Create a project
@@ -43,14 +43,14 @@ An empty name cannot be saved. Rename also offers **CANCEL** and **RANDOM**.
 Choose **LOAD** to open the Project Browser. It starts in `/projects` and lists
 project directories rather than individual save files.
 
-- Up and Down move through the list.
-- Option + Up or Down moves by eight rows.
-- Left and Right choose a bottom-bar action.
-- Enter runs the selected action.
+- <Keycap>Up</Keycap> and <Keycap>Down</Keycap> move through the list.
+- <KeyCombo keys={['Option', 'Up']} /> or <KeyCombo keys={['Option', 'Down']} /> moves by eight rows.
+- <Keycap>Left</Keycap> and <Keycap>Right</Keycap> choose a bottom-bar action.
+- <Keycap>Enter</Keycap> runs the selected action.
 - The current project has a leading `*`.
 
 The first row is `..`; choose it to move to the parent folder. A folder opens
-when you press Enter. Inside the Projects folder, **LOAD** opens the selected
+when you press <Keycap>Enter</Keycap>. Inside the Projects folder, **LOAD** opens the selected
 project.
 
 Loading is blocked while playback is running. If the current project is dirty,
@@ -59,7 +59,7 @@ appears and your current song stays open. After a successful load, Song opens.
 
 ## Delete a project
 
-Select a project other than the active one, choose **DELETE**, and press Enter.
+Select a project other than the active one, choose **DELETE**, and press <Keycap>Enter</Keycap>.
 Deletion requires confirmation and is blocked while playback is running.
 
 The active project has no Delete action. If deletion fails, the project remains
@@ -71,7 +71,7 @@ The Cleanup section contains two destructive, confirmed operations:
 
 - On `SAMPLES`, choose **BROWSE** to inspect the project sample pool or
   **REMOVE UNUSED** to delete unreferenced project samples.
-- On `INSTRUMENTS`, press Enter on **REMOVE UNUSED** to release unreferenced
+- On `INSTRUMENTS`, press <Keycap>Enter</Keycap> on **REMOVE UNUSED** to release unreferenced
   instrument slots.
 
 Stop playback before cleanup. Save first if you may want to restore the removed

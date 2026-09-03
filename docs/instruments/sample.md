@@ -16,7 +16,7 @@ A Sample instrument plays one WAV from the project's sample pool and applies pit
 
 1. Set the instrument **Type** to `SAMPLE`.
 2. Return to Project and open **Samples → Browse**.
-3. Choose **Import**, find a WAV, and hold Play to preview it.
+3. Choose **Import**, find a WAV, and hold <Keycap>Play</Keycap> to preview it.
 4. Choose **Import** on the file.
 5. Return to the instrument. The imported WAV is now assigned to it.
 
@@ -40,8 +40,8 @@ Values shown with A–F are hexadecimal unless the table says otherwise.
 
 | Field | Values | Default | What it controls |
 | --- | --- | --- | --- |
-| `SAMPLE` | Project WAV name | `--` | Enter opens the Sample Editor. Playback must be stopped. |
-| `SLICES` | `OFF / ADJUST` or count | Off | Enter opens the Slices editor. |
+| `SAMPLE` | Project WAV name | `--` | <Keycap>Enter</Keycap> opens the Sample Editor. Playback must be stopped. |
+| `SLICES` | `OFF / ADJUST` or count | Off | <Keycap>Enter</Keycap> opens the Slices editor. |
 | `VOLUME` | `00`–`FF` | `80` | Instrument output level after drive/crush. |
 | `PAN` | `00`–`FE` | `7F` | Stereo position; `7F` is centered. |
 | `ROOT NOTE` | MIDI note 0–127 | `C3` | Note that plays the sample at its base pitch. |
@@ -57,10 +57,10 @@ Values shown with A–F are hexadecimal unless the table says otherwise.
 | `START` | 7 hex digits | `0000000` | First frame used for playback. |
 | `LOOP START` | 7 hex digits | `0000000` | Beginning of the loop window. |
 | `LOOP END` | 7 hex digits | End of sample | End of the playback/loop window. |
-| `TABLE` | `--`, `00`–`1F` | `--` | Table attached to every note from this instrument. Enter assigns the first free table. |
+| `TABLE` | `--`, `00`–`1F` | `--` | Table attached to every note from this instrument. <Keycap>Enter</Keycap> assigns the first free table. |
 | `AUTOMATION` | `NO`, `YES` | `NO` | With `YES`, an instrument trigger advances its table automation rather than advancing once per tick. |
 
-`START`, `LOOP START`, and `LOOP END` are bounded by the loaded sample. Hold Enter, select one of the seven digits with Left / Right, and edit it with Up / Down.
+`START`, `LOOP START`, and `LOOP END` are bounded by the loaded sample. Hold <Keycap>Enter</Keycap>, select one of the seven digits with <Keycap>Left</Keycap> / <Keycap>Right</Keycap>, and edit it with <Keycap>Up</Keycap> / <Keycap>Down</Keycap>.
 
 ## Loop modes
 
