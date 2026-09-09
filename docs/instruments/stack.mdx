@@ -1,0 +1,78 @@
+---
+title: Stack
+sidebar_position: 7
+description: Layer five oscillators into chords, detuned leads, and sustained sounds.
+---
+
+# Stack
+
+Stack layers five oscillators into one sound on one track. Play a single Phrase
+note and use **CHORD** to add intervals, or **SPREAD** to detune the layers.
+It makes sound without loading a sample.
+
+<InterfaceShot src="img/screens/instrument-stack.png" alt="Stack instrument with waveform, chord, and envelope settings">
+Choose a waveform, then shape the five oscillator layers with CHORD and SPREAD.
+</InterfaceShot>
+
+## Try a chord
+
+1. Open an instrument and use <Keycap>Left</Keycap> / <Keycap>Right</Keycap> on **Type** to choose `STACK`.
+2. Leave **WAVE** at `SAW` and **CHORD** at `047C`.
+3. Return to Phrase with <KeyCombo keys={['Shift', 'Left']} /> and enter a note using this instrument.
+4. Hold <Keycap>Enter</Keycap> on the note to hear a major chord. Release it to stop the preview.
+5. Return to Instrument and raise **SPREAD** slightly to hear the layers detune.
+
+## Wave and chord
+
+**WAVE** offers `PULSE 12.5`, `PULSE 25`, `PULSE 50`, `SAW`, `TRIANGLE`,
+`ORGAN`, and `VOX`.
+
+One oscillator plays the base note. Each of the four **CHORD** digits adds
+another oscillator at an interval of `0`–`F` semitones above it (`0`–`15` in
+decimal). These digits are intervals, not instrument numbers.
+
+| CHORD | Result |
+| --- | --- |
+| `0000` | All five oscillators in unison; use SPREAD for detuning |
+| `047C` | Base note plus 0, 4, 7, and 12 semitones: a major chord with an octave |
+| `037C` | Base note plus 0, 3, 7, and 12 semitones: a minor chord with an octave |
+
+Hold <Keycap>Enter</Keycap>, choose a CHORD digit with
+<Keycap>Left</Keycap> / <Keycap>Right</Keycap>, and change it with
+<Keycap>Up</Keycap> / <Keycap>Down</Keycap>.
+
+## Parameters
+
+Two-digit values below are hexadecimal unless marked decimal.
+
+| Field | Range | Default | Use |
+| --- | --- | --- | --- |
+| SPREAD | `00`–`FF` | `00` | Detune the oscillator layers |
+| TRANSPOSE | −24–24, decimal | 0 | Shift the whole sound in semitones |
+| VOLUME | `00`–`FF` | `80` | Set the instrument level |
+| BRIGHTNESS | 0–12, decimal | 12 | Control the harmonic content; higher is brighter |
+| PITCH DECAY | `00`–`FF` | `00` | Set the pitch-decay effect |
+| ATTACK | `00`–`FF` | `00` | Shape the start of the volume envelope |
+| DECAY | `00`–`FF` | `00` | Shape the transition to the sustain level |
+| SUSTAIN | `00`–`FF` | `FF` | Set the held level |
+| RELEASE | `00`–`FF` | `00` | Shape the tail after Note Off |
+| TABLE | `OFF` or a table number | `OFF` | Assign a Table |
+| AUTOMATION | `NO` / `YES` | `NO` | Enable table automation |
+
+Use <Keycap>Left</Keycap> / <Keycap>Right</Keycap> for normal value changes.
+Hold <Keycap>Enter</Keycap> and press <Keycap>Up</Keycap> / <Keycap>Down</Keycap>
+for the larger step shown by the field. TRANSPOSE uses an octave for its larger step.
+
+## Playback tips
+
+CHORD layers belong to one note trigger; they are not independently sequenced
+tracks. A new note on the same track replaces that voice. Use another track
+if you need independently overlapping notes.
+
+Note Off starts the release stage; `KIL` stops the voice after its specified
+tick delay. Stack also handles `VOL` and the low digit of `CSH` for bit crushing;
+the drive part of `CSH` is not used. Its instrument parameters are not a promise of
+support for every Sample-specific FX command.
+
+See [Tables](../sequencer/table) for sequencing a Table and
+[Choose an instrument](overview) for saving or importing a sound.

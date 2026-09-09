@@ -1,7 +1,7 @@
 ---
 title: Choose an instrument
 sidebar_position: 1
-description: Give Phrase notes a Sample, MIDI, SID, or OPAL sound.
+description: Choose Sample, MIDI, SID, OPAL, Drum, or Stack for your Phrase notes.
 ---
 
 # Choose an instrument
@@ -19,12 +19,32 @@ the sound.
 1. In Phrase, place the cursor on a row that uses `I00`.
 2. Use <KeyCombo keys={['Shift', 'Right']} /> to open Instrument 00.
 3. Move <Keycap>Down</Keycap> once to **Type**.
-4. From `NONE`, press <Keycap>Left</Keycap> once to choose `OPAL`.
+4. Use <Keycap>Left</Keycap> / <Keycap>Right</Keycap> until the Type reads `OPAL`.
 5. Use <KeyCombo keys={['Shift', 'Left']} /> to return to Phrase.
 6. Hold <Keycap>Enter</Keycap> on the note to hear it.
 
-OPAL and SID make sound without loading a file. A Sample instrument needs a WAV,
+OPAL, SID, Drum, and Stack make sound without loading a file. A Sample instrument needs a WAV,
 and MIDI plays an external instrument.
+
+## Assign an instrument in Phrase
+
+On an empty `INS` cell, press <Keycap>Enter</Keycap> to insert the remembered
+instrument immediately. Creating a NOTE also fills its INS assignment. Keep
+<Keycap>Enter</Keycap> held on NOTE or INS to audition the step; release it to
+stop the preview.
+
+Use <KeyCombo keys={['Enter', 'Left']} /> or
+<KeyCombo keys={['Enter', 'Right']} /> on INS to choose another instrument number.
+These change which instrument the row uses, not the sound's settings.
+
+A second consecutive <Keycap>Enter</Keycap> on INS assigns a new empty instrument
+slot, even if INS already has a number. The new slot starts as `NONE`; open it
+and choose a Type. This does not duplicate the previous sound. To make a copy,
+use [Clone referenced data](../sequencer/phrase#clone-referenced-data).
+
+While holding <Keycap>Enter</Keycap>, press <Keycap>Option</Keycap> to cut the
+current assignment, including one you just entered. Cutting INS alone leaves
+the note in place; cutting NOTE clears both NOTE and INS.
 
 ## Instrument types
 
@@ -34,6 +54,8 @@ and MIDI plays an external instrument.
 | `MIDI` | Play an external synth or software instrument |
 | `SID` | Make chip-style basses, leads, and noise |
 | `OPAL` | Make FM bells, basses, and additive tones |
+| [`DRUM`](drum) | Build a twelve-sound synthesized drum kit |
+| [`STACK`](stack) | Make layered leads, detuned sounds, and chords from one note |
 | `NONE` | Leave the instrument empty |
 
 ## Moving around
@@ -67,9 +89,10 @@ An exported Sample instrument stores its settings and sample filename; it does *
 
 ## Changing type
 
-Select **Type** and press <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to cycle through:
+Select **Type** and press <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to change it.
 
-`NONE → SAMPLE → MIDI → SID → OPAL → NONE`
+Available types are `NONE`, `SAMPLE`, `MIDI`, `SID`, `OPAL`, `DRUM`, and `STACK`.
+The selector wraps around, so keep moving until the type you want appears.
 
 If the current instrument has a name or edited settings, NullPerator asks before
 replacing it. Stop playback and note preview before changing type.
