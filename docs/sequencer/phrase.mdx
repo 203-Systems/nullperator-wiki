@@ -46,9 +46,10 @@ Hold <Keycap>Option</Keycap> to change context without moving the cell cursor:
 
 ## Editing
 
-Tap <Keycap>Enter</Keycap> to apply the last value for the current column. On
-`NOTE` or `INS`, holding <Keycap>Enter</Keycap> also auditions the current step
-until <Keycap>Enter</Keycap> is released; an empty step may produce no sound.
+Press <Keycap>Enter</Keycap> on an empty NOTE or INS cell to insert the remembered
+value immediately. On `NOTE` or `INS`, holding <Keycap>Enter</Keycap> also auditions
+the current step until it is released. A step without a playable instrument or
+note may produce no sound.
 Audition does not interrupt an already-running Song, Chain, or Phrase transport.
 
 Creating a note in an empty `NOTE` cell also writes the last explicit instrument into `INS`. This makes the new note immediately playable. A deliberately empty `I--` on an existing note still keeps its normal playback-time instrument inheritance behavior.
@@ -70,9 +71,18 @@ FX values have a four-digit cursor. While <Keycap>Enter</Keycap> is held,
 `0100`, `0010`, or `0001`. The effect command clamps the final value to its
 valid range.
 
-On `INS`, a second consecutive <Keycap>Enter</Keycap> allocates a new empty instrument slot. On the parameter of a `TBL` effect, a second <Keycap>Enter</Keycap> allocates a new table. These allocation gestures do not apply to NOTE or ordinary FX cells.
+On `INS`, a second consecutive <Keycap>Enter</Keycap> allocates a new empty instrument slot. On the parameter of a `TBL` effect, a second <Keycap>Enter</Keycap> allocates a new table. This replaces an existing number too; it does not copy the old instrument or table. These allocation gestures do not apply to NOTE or ordinary FX cells.
 
 Hold <Keycap>Enter</Keycap> and <Keycap>Option</Keycap> together to cut a cell. Cutting NOTE also clears its paired INS assignment; cutting an FX command clears the command and its value.
+
+If Enter first fills an empty cell, pressing Option while Enter remains held
+cuts the newly displayed value. To insert Note Off in an empty NOTE cell,
+hold <Keycap>Option</Keycap> first, then press <Keycap>Enter</Keycap>.
+
+With a [Drum instrument](../instruments/drum), NOTE shows D01–D12.
+Hold <Keycap>Enter</Keycap> and use <Keycap>Left</Keycap> / <Keycap>Right</Keycap>
+to change the drum by one, or <Keycap>Up</Keycap> / <Keycap>Down</Keycap> by ten.
+The kit wraps at both ends without following the project scale.
 
 ## Selection and clipboard
 

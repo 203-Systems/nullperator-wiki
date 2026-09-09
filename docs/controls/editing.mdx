@@ -23,6 +23,7 @@ faster step.
           keys: ['Enter'],
           title: 'Initialize an empty cell',
           input: 'Tap Enter',
+          detail: 'The value appears on button-down; you do not need to release Enter first.',
         },
         {
           keys: ['Enter', 'Left', 'Right'],
@@ -82,9 +83,39 @@ and its transpose changes by an octave (12 semitones). On a Phrase note the
 bottom bar names the two axes **Note** and **Oct** instead of showing numeric
 step sizes.
 
-Pressing <Keycap>Enter</Keycap> on an empty Song, Chain, Phrase, or Table cell fills it with a
-useful starting value. A new Phrase note also selects Instrument 00, but you
-still need to choose a sound for that instrument.
+Drum notes use **D01–D12** instead of pitches. Their **±1 / ±10** controls
+choose drum sounds and wrap around the kit; the project scale does not apply.
+See [Drum](../instruments/drum) for the parameter table and waveform controls.
+
+Pressing <Keycap>Enter</Keycap> fills an empty Song chain reference, Chain phrase
+reference, or Phrase note/instrument cell immediately, using the remembered value.
+A new Phrase note carries the last explicit instrument with it; this starts at
+Instrument 00 in a fresh session. The instrument needs a sound before you can hear it.
+Holding Enter does not repeatedly fill the cell, and releasing it does not insert
+another value. FX command cells keep their command-selection behavior.
+
+### Cut the current value
+
+<KeyCombo keys={['Enter', 'Option']} /> cuts the current cell. If you press
+<Keycap>Enter</Keycap> first on an empty cell, its value appears immediately.
+Keep it held and press <Keycap>Option</Keycap> to cut that newly entered value.
+You can also adjust it with a direction before pressing Option.
+
+Holding <Keycap>Option</Keycap> first and then pressing <Keycap>Enter</Keycap>
+cuts without first filling the cell. On an empty Phrase NOTE cell, this order
+inserts Note Off instead. Cutting a populated NOTE clears its paired INS cell too.
+
+Single-cell cut remembers the value for a later <Keycap>Enter</Keycap> press on
+an empty cell. For a block of cells, use [Selection and clipboard](selection-clipboard).
+
+### Why another Enter can change a number
+
+A second consecutive <Keycap>Enter</Keycap> press assigns a free Chain number
+in Song, a free Phrase number in Chain, or a new instrument slot in Phrase INS.
+On a Phrase `TBL` value it assigns a free Table number. This also replaces an
+already populated reference; it is not a numeric increment, and does not copy
+the old resource's contents. Move the cursor between separate edits if you do
+not want to invoke this consecutive-press gesture.
 
 ## Four-digit effect values
 
