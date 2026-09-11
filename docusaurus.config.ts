@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://npwiki.203.io',
+  url: 'https://np-wiki.203.io',
   baseUrl: '/',
   organizationName: '203-Systems',
   projectName: 'nullperator-wiki',
@@ -84,7 +84,7 @@ const config: Config = {
           label: 'Manual',
         },
         {
-          href: 'https://github.com/203Null/picoTracker',
+          href: 'https://github.com/203-Systems/NullPerator',
           label: 'GitHub',
           position: 'right',
           'aria-label': 'NullPerator firmware repository',
@@ -105,7 +105,7 @@ const config: Config = {
           items: [
             {
               label: 'Firmware',
-              href: 'https://github.com/203Null/picoTracker',
+              href: 'https://github.com/203-Systems/NullPerator',
             },
             {
               label: 'Documentation source',
