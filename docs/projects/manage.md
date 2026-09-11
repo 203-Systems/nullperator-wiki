@@ -10,7 +10,7 @@ description: Start, open, save, rename, and delete projects.
   The Project Browser lists directories and keeps its actions in the bottom bar.
 </InterfaceShot>
 
-Select `NAME` on the Project page. The bottom bar offers **NEW**, **LOAD**,
+Select `NAME` below the **Project** divider on the Project page. The bottom bar offers **NEW**, **LOAD**,
 **SAVE**, and **RENAME**. Move between them with <Keycap>Left</Keycap> and <Keycap>Right</Keycap> and press <Keycap>Enter</Keycap>
 to run the selected action.
 

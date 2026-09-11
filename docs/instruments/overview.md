@@ -58,6 +58,25 @@ the note in place; cutting NOTE clears both NOTE and INS.
 | [`STACK`](stack) | Make layered leads, detuned sounds, and chords from one note |
 | `NONE` | Leave the instrument empty |
 
+## Page sections
+
+Blue dividers group each instrument's parameters. They are section labels in
+one scrolling list; use <Keycap>Up</Keycap> / <Keycap>Down</Keycap> to move
+between editable rows.
+
+| Instrument | Sections |
+| --- | --- |
+| Sample | Source; Level & Pitch; Character; Filter; Playback; Modulation |
+| MIDI | Output; Modulation |
+| SID | Oscillator; Envelope; Filter & Output |
+| OPAL | General Settings; Operator Settings |
+| Drum | Voices; Kit |
+| Stack | Oscillator; Tone; Envelope; Modulation |
+
+Drum's **Voices** divider shares the column-header row. SID's **Envelope**
+divider shares its ATK / DEC / SUS / REL headers, and OPAL's **Operator Settings**
+divider shares its OP 1 / OP 2 headers.
+
 ## Moving around
 
 | Input | Result |

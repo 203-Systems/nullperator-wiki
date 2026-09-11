@@ -28,7 +28,7 @@ const rows = [
   {
     topic: 'Recording',
     node: 'Line in, onboard mic, or headset mic',
-    web: 'Not available',
+    web: 'Browser microphone; permission required',
     ios: 'Current iOS input route; microphone permission required',
   },
   {

@@ -45,6 +45,20 @@ creates the tutorial state through real controls, captures the application's
 `NULLPERATOR_SOURCE_DIR` only when the firmware checkout is not beside this
 repository; it is used to record the app revision in `capture.json`.
 
+To refresh the current sampling, instrument, and settings workflows, run:
+
+```bash
+npm run capture:workflows -- --url=http://127.0.0.1:5173/
+```
+
+This uses isolated browser contexts, imports a generated WAV through the real
+file picker, and captures the editor, slices, and idle recorder through their
+normal entry points. It does not request microphone access. Set
+`CHROME_CHANNEL=chrome` to use installed Chrome instead of Playwright Chromium.
+The workflow preserves other screenshots. Each updated frame records its own
+`sourceRevision` in `capture.json`; the top-level revision is the fallback for
+older frames.
+
 ## Content conventions
 
 - Use the product actions **Shift**, **Option**, **Enter**, and **Play**. Physical

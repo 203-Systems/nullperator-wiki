@@ -14,14 +14,27 @@ A Sample instrument plays one WAV from the project's sample pool and applies pit
 
 ## Load a sound
 
-1. Set the instrument **Type** to `SAMPLE`.
-2. Return to Project and open **Samples → Browse**.
-3. Choose **Import**, find a WAV, and hold <Keycap>Play</Keycap> to preview it.
-4. Choose **Import** on the file.
-5. Return to the instrument. The imported WAV is now assigned to it.
+1. Set the instrument **Type** to `SAMPLE` and move to the `SAMPLE` row.
+2. Use <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to choose **Load**, then
+   press <Keycap>Enter</Keycap> to open the sample library.
+3. Select a WAV and tap <Keycap>Play</Keycap> to preview it; tap again to stop.
+4. Stop the preview if it is still playing, then choose **Import** on the file.
+   NullPerator copies it into the project, assigns it, and returns to Instrument.
 
-Importing a different WAV clears this instrument's slice points. The `SAMPLE`
-row opens the Sample Editor; choose the sound itself in the Sample Browser.
+On Web and iOS, the `SAMPLE` row offers **Load / Import / Record / Edit**.
+**Import** opens the system WAV picker, **Record** captures a new take, and
+**Edit** opens the assigned WAV. Edit requires a loaded sample; stop playback
+before loading, importing, recording, or editing.
+
+See [Browse and import samples](../sampling/library) and
+[Record a sample](../sampling/recording) for the complete workflows.
+Importing a different WAV clears this instrument's slice points.
+
+## Page sections
+
+The list groups parameters under **Source**, **Level & Pitch**, **Character**,
+**Filter**, **Playback**, and **Modulation**. Move through fields with
+<Keycap>Up</Keycap> / <Keycap>Down</Keycap>; the section dividers are labels.
 
 ## Common adjustments
 
@@ -40,8 +53,8 @@ Values shown with A–F are hexadecimal unless the table says otherwise.
 
 | Field | Values | Default | What it controls |
 | --- | --- | --- | --- |
-| `SAMPLE` | Project WAV name | `--` | <Keycap>Enter</Keycap> opens the Sample Editor. Playback must be stopped. |
-| `SLICES` | `OFF / ADJUST` or count | Off | <Keycap>Enter</Keycap> opens the Slices editor. |
+| `SAMPLE` | Project WAV name | `--` | Choose Load, Import, Record, or Edit in the bottom bar; available actions depend on the platform and loaded sample. |
+| `SLICES` | Slice count | Unsliced | <Keycap>Enter</Keycap> opens the Slices editor. |
 | `VOLUME` | `00`–`FF` | `80` | Instrument output level after drive/crush. |
 | `PAN` | `00`–`FE` | `7F` | Stereo position; `7F` is centered. |
 | `ROOT NOTE` | MIDI note 0–127 | `C3` | Note that plays the sample at its base pitch. |

@@ -27,6 +27,9 @@ indicator before changing Phrase data.
 
 ## Parameters
 
+**Output** groups Channel, Volume, Length, and Program; **Modulation** contains
+Table and Automation. Use the vertical directions to move through the fields.
+
 | Field | Values | Default | Behaviour |
 | --- | --- | --- | --- |
 | `CHANNEL` | `01`–`16` decimal | `01` | MIDI channel. The display is decimal even when nearby values are hexadecimal. |

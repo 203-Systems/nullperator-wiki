@@ -11,15 +11,17 @@
     },
     {
       "file": "device.png",
-      "sha256": "56722e87b7e80ee8249607e474de6c06b0625e7e9ef23dfe9b84f22834a2150e",
+      "sha256": "67ccc7568376ee3b29ce9c337c5a8317a94bfdde8635f5d7848c64e780962929",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "font.png",
-      "sha256": "263fd44052f364c4b153016b0515b1bdefe7cb037ac97e0d69927df4469d3e76",
+      "sha256": "cc583c5dcc843c4aab88cf1d8226dfae5c3278bf9608245863646d591969baaa",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "groove.png",
@@ -28,10 +30,18 @@
       "height": 240
     },
     {
-      "file": "instrument-midi.png",
-      "sha256": "d6294c3648e12b7ee1fe1124f8f1e0a95b9b8656169fe27207bf2127adfbec95",
+      "file": "instrument-drum.png",
+      "sha256": "297c296535ed65479e02a766ca466290b351a90119920e83cb76d697a6b79eee",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
+    },
+    {
+      "file": "instrument-midi.png",
+      "sha256": "c5b376309280b09c766358a1a0cda485b3de06d21d46cb3410a5358327b7d74e",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "instrument-none.png",
@@ -41,21 +51,31 @@
     },
     {
       "file": "instrument-opal.png",
-      "sha256": "d3ed832072007a1be36d3f185392eec4e3cffaeb57e3ce52b60a8a449baacf96",
+      "sha256": "48df6b77a80f37be0b0adac8e87bda176d122aa21334e50d842ec0e62232abba",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "instrument-sample.png",
-      "sha256": "68c40e4912882ba0d8840e74faeabebbc0498524da22b78eaf3779b32736374b",
+      "sha256": "af424f5acc72c717549a10cf82156d298bef12f5221036c195f726142f0f8fa1",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "instrument-sid.png",
-      "sha256": "e07acf52fb24d7762949db7f6fc63a768f34c175e2eab7eb0b02250e6c05cd3a",
+      "sha256": "68568bf1fa034ad0919319d936cbf699c4214b74d09609947290be8d2340603e",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
+    },
+    {
+      "file": "instrument-stack.png",
+      "sha256": "837827ceb25d98de04770ab365fd5684eb7c7e70ffe78cdbca7e1a0b0b50ec15",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "mixer.png",
@@ -83,9 +103,10 @@
     },
     {
       "file": "project-name.png",
-      "sha256": "a00bdf8e1d8d973e0d3e985971a944fdcebbf8a4de8d7aec6104ee575f0c183a",
+      "sha256": "4ce82150e2a8e05fc310e440248fd91eddd1bec6eb73902735afb7514c4fa541",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "project-render.png",
@@ -95,9 +116,10 @@
     },
     {
       "file": "project.png",
-      "sha256": "feeba3b09af3d90228f1236667f90fb69d186f1dd0fb32426ffcd6df18a43882",
+      "sha256": "4ce82150e2a8e05fc310e440248fd91eddd1bec6eb73902735afb7514c4fa541",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "projects.png",
@@ -106,22 +128,46 @@
       "height": 240
     },
     {
-      "file": "sample-editor.png",
-      "sha256": "f080ba521aac26b62faf393ee94007ce99ec17f5d02df7abfede8d5cf95271a9",
+      "file": "sample-editor-save.png",
+      "sha256": "4159fe1a9c4c34f278d06e87a2a05505c212490f39d112aa630eceeca4b2ad25",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
+    },
+    {
+      "file": "sample-editor.png",
+      "sha256": "3ed44e6ce1ab861cc347c321ae7f59e8a14de433a5ddda054b3b8be655d937a7",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "sample-pool.png",
-      "sha256": "23655a54b04096e14fcbed7e96d595581ca3b973b19b697ced62a2b19476eadf",
+      "sha256": "6d4c491bd0daa996ac210644c4c737f43a220096bf8024753c15d32e159ded71",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
+    },
+    {
+      "file": "sample-record.png",
+      "sha256": "7c92fb3424b096fa372be55f1c7ea9daebbb22bc240ff9a2d0d0f499cef7c537",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
+    },
+    {
+      "file": "sample-slices-auto.png",
+      "sha256": "0980a620a18ce4ed1cc24c077a0bc5f82870a6bebdc767edd905b05f51899fe4",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "sample-slices.png",
-      "sha256": "34dd25481fe280eb244e092b1d04f4a3488ebc027802c2c3ffe57461a708ef5d",
+      "sha256": "20a17b25305f9dbc4c78ff8a01df42d24c766ef7230c95c1678b11de0cae7e50",
       "width": 240,
-      "height": 240
+      "height": 240,
+      "sourceRevision": "1be7468dac17b94be2f203ca38857184fc1c9ee5"
     },
     {
       "file": "song-empty.png",

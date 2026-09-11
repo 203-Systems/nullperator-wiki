@@ -8,7 +8,7 @@ description: Common file browser, rename, confirmation, and feedback patterns.
 
 NullPerator uses full-screen browsers for projects, samples, instruments,
 and themes. Choosing a project loads the song; choosing a sample or instrument
-imports it into the current project.
+loads or imports it into the current project.
 
 ## Shortcuts
 
@@ -96,6 +96,14 @@ or saving fails, the screen stays open and tells you what happened.
 ## Confirmations and feedback
 
 In a confirmation, move to the action you want and press <Keycap>Enter</Keycap>.
+**No / Cancel** is on the left and **Yes / Replace** on the right. Two-state
+selectors likewise place **Off / No / False** before **On / Yes / True**.
+
+Hold <Keycap>Shift</Keycap> on a child page, including Sample Edit, Slices,
+Record, or a browser, to show **Back** in the top-right navigation area. Use
+<KeyCombo keys={['Shift', 'Left']} /> to return. Sample Edit asks before
+abandoning an unsaved take, an edited range, or applied operations. Starting a
+new project also asks before replacing a project with unsaved changes.
 
 Brief results such as **Copied**, **Pasted**, or **Locked** appear in the bottom
 bar. Errors that need your attention open a message in the middle of the

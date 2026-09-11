@@ -24,7 +24,7 @@ For `DEEP TREM/VIB`, hold <Keycap>Enter</Keycap>, choose the tremolo or vibrato 
 
 ## Operator settings
 
-The lower section shows operator 1 and operator 2 side by side. <Keycap>Up</Keycap> / <Keycap>Down</Keycap> moves by row. <Keycap>Left</Keycap> / <Keycap>Right</Keycap> without <Keycap>Enter</Keycap> switches operator columns; hold <Keycap>Enter</Keycap> while changing the selected operator's value.
+The blue **Operator Settings** divider shares a row with **OP 1** and **OP 2**. The active operator header highlights only while an operator field is focused. The two operators appear side by side below it. <Keycap>Up</Keycap> / <Keycap>Down</Keycap> moves by row. <Keycap>Left</Keycap> / <Keycap>Right</Keycap> without <Keycap>Enter</Keycap> switches operator columns; hold <Keycap>Enter</Keycap> while changing the selected operator's value.
 
 | Field | Values | OP1 default | OP2 default | Behaviour |
 | --- | --- | --- | --- | --- |

@@ -34,6 +34,8 @@ on numeric rows. Holding a direction repeats after the initial delay.
 iOS hides `MIDI DEVICE`, `VOLUME`, and `BRIGHTNESS`; those are managed by the
 native app or by iOS. The remaining rows use the same controls and values.
 
+In **Display**, Theme and Font names follow the Font page's **Case** preference.
+
 The footer displays the current app version, `0.1` in this release.
 
 ### Brightness safety

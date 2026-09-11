@@ -85,7 +85,9 @@ Use <Keycap>Left</Keycap> and <Keycap>Right</Keycap> on `CASE` to cycle among:
 | `CASE` | Uppercase |
 | `case` | Lowercase |
 
-This preference changes built-in interface labels. User-authored project,
+This preference changes built-in interface labels, including the displayed
+Theme and Font names in Device → Display. It does not rename their files.
+User-authored project,
 instrument, sample, file, and path names preserve the case that was entered.
 The choice is saved in device configuration.
 

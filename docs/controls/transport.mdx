@@ -8,7 +8,7 @@ description: Page playback, Song and Live transport, mute, and solo.
 
 <Keycap>Play</Keycap> is contextual. A plain press starts from the current Song,
 Chain, Phrase, Table, Groove, or selection context; tapping it while active
-stops playback. On pages with local playback, <KeyCombo keys={['Shift', 'Play']} /> requests full Song
+stops playback. On sequencer pages with local playback, <KeyCombo keys={['Shift', 'Play']} /> requests full Song
 transport. In Live, <KeyCombo keys={['Shift', 'Play']} /> starts the focused track or selected span when
 transport is stopped, or queues that same target to stop while transport is
 running.
@@ -99,6 +99,21 @@ In Live, <KeyCombo keys={['Enter', 'Play']} sequence /> starts the focused item 
 cues the current Song row across all eight tracks.
 
 <KeyCombo keys={['Option', 'Up']} /> or <KeyCombo keys={['Option', 'Down']} /> jumps between populated Song sections.
+
+## Sample preview and recording
+
+In the Sample Browser, Sample Editor, and Slices, tap <Keycap>Play</Keycap> to
+start a local preview and tap again to stop. Releasing the button keeps the
+preview running. Long WAV previews stop at the end; short single-cycle WAV
+previews in the browser and editor loop until stopped.
+
+Stop sequencer playback before previewing samples. In the Sample Browser,
+<KeyCombo keys={['Shift', 'Play']} /> imports the selected library WAV.
+[Record](../sampling/recording) uses <Keycap>Enter</Keycap> to start and stop
+capture, then opens the Sample Editor for preview and saving.
+
+Holding <Keycap>Enter</Keycap> on a Phrase note still auditions that note only
+while held; this is separate from the sample preview control.
 
 ## Mute and solo
 
