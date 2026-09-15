@@ -131,7 +131,17 @@ Phrase and Table effect parameters are four hexadecimal digits. Hold <Keycap>Ent
 press <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to move the digit focus.
 <Keycap>Up</Keycap> / <Keycap>Down</Keycap> edits the focused digit. The
 command mnemonic remains highlighted while either its mnemonic or its value is
-active, and the bottom bar continues to show command help.
+active. Holding Enter shows command-specific information on the left of the
+bottom bar and compact **Digit / Value** controls on the right. The field that
+contains the selected digit is highlighted; its meaning and value update as
+you edit. With no FX command, the bar shows only the editing controls.
+
+For example, Sample `VOL` shows **Speed / Volume**, `MCC` shows **CC / Value**,
+and `FLT` shows **Cutoff / Resonance**. Arpeggios and chords highlight the current
+offset. `TPO 0078` shows **120 BPM** alongside its hexadecimal value. Unused
+digits are labelled **Unused digit**, commands without arguments show
+**No parameter**, and incompatible commands retain **Not Supported / On This
+Instrument** while you edit.
 
 For `SIP aabb`, the bottom bar also keeps the instrument type, parameter name,
 current value, and range visible while you edit. Selecting a digit in `aa`

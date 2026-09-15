@@ -221,6 +221,36 @@ parameter to address and adjust an individual hexadecimal digit.
 Parameters are hexadecimal even when their musical meaning is a decimal count.
 For example, `TPO 0078` is 120 BPM and `KIL --0C` is 12 ticks.
 
+While you hold **Enter**, the left side of the two-line bottom bar explains the
+current command's fields and values. **Digit / Value** controls stay on the
+right. The field containing the focused digit is highlighted. For paired-byte
+commands, both fields remain visible: Sample `VOL` shows **Speed / Volume**,
+`FLT` shows **Cutoff / Resonance**, and MIDI `MCC` shows **CC / Value**.
+
+<InterfaceShot src="img/screens/fx-edit-sample-vol-2.png" alt="Sample VOL parameter editing with Volume highlighted, Speed still visible, and compact controls on the right">
+  Moving between the two bytes highlights the field you are changing.
+</InterfaceShot>
+
+The explanation follows the active instrument and page. MIDI `VOL` shows its
+outgoing CC 7 value; Drum and Stack `VOL` use only the low byte. Table `HOP`
+shows the repeat count and destination step, while Phrase `HOP` uses only the
+destination step. An unresolved instrument uses **Per engine** for fields whose
+behavior depends on the eventual instrument.
+
+<InterfaceShot src="img/screens/fx-edit-table-hop-count.png" alt="Table HOP parameter editing with repeat count highlighted and destination step visible">
+  Table HOP exposes both the repeat count and destination without hiding the edit controls.
+</InterfaceShot>
+
+Whole values can show their decoded meaning: `TPO 0078` displays **120 BPM**,
+including the player's 60–400 BPM clamp. MIDI fields show the effective 7-bit
+values. Arpeggios and chords show individual offsets and highlight the one being
+edited; a dash marks an omitted note. These explanations do not rewrite the
+stored hexadecimal value.
+
+Selecting an unused digit shows **Unused digit**. `GOF` and `STP` show
+**No parameter**. Unsupported commands keep **Not Supported / On This
+Instrument** beside the controls. Empty FX cells keep the plain editing legend.
+
 ## Context details
 
 - Phrase commands are evaluated with the Phrase note on the same step. `DLY`

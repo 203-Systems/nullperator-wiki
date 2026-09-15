@@ -40,6 +40,198 @@
       "sourceDirty": true
     },
     {
+      "file": "fx-edit-chiptune-csh-0.png",
+      "sha256": "5f38758dd1c6617dcd054344e72eeeaed2a385bef5a632781d12a7625585f8b6",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-chiptune-csh-3.png",
+      "sha256": "875f969b0de058c5ea61ec96bf19ffc03360765c34ac663ce95ea533791358d2",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-chiptune-vol-1.png",
+      "sha256": "a019846f03ca32b51b37e02d69fd3ac0961f0b92d1d56bf07738bab79d3a6bd6",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-chiptune-vol-3.png",
+      "sha256": "8df9a8dfe60752092c28533f8006529e229aedd73d05faf328688d4a1a5dded3",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-midi-mcc-1.png",
+      "sha256": "ca7e3b7be138ac31865e6a04a55cc352c30e71f1c58a8e2acb44191f7cab8367",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-midi-mcc-3.png",
+      "sha256": "8218e70922bb06c5ea880b3eafd01d33de90ed95bf9682e405a7f22321fabbfb",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-midi-mch-3.png",
+      "sha256": "7c1abb7665666d168f040897601e8a8ec1f5187d70b200ab1661c0d1915f5732",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-midi-vol-0.png",
+      "sha256": "01d62d71abc03625e53c7d3c80e58c8416e6e8d64c1284f8e5c2d23b3dd9249f",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-midi-vol-3.png",
+      "sha256": "40f7699391838821bc8b0ab8bfa1e1640ae4785751d134b9e9d82dbd626b7fc2",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-arp-2.png",
+      "sha256": "db7ab7885729087f98677374330e8ba627854bd5a3a21b021c6f19e44c62ff09",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-csh-2.png",
+      "sha256": "b2318e12ec6ffc6e85e015766966ecd802738fde0618a120013b80d9cf3d6a60",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-dly-3.png",
+      "sha256": "af98b40fcac937a1144bfb61943080b00f5afce6d9eb64c79f1e7d7e86d19031",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-flt-0.png",
+      "sha256": "bf48699010d4ed9c2dad01debf905f6bfdccee81cbfdd5f529cadebba505dd17",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-flt-3.png",
+      "sha256": "b14801ab5562f1a55a6acea4e239bc6ada37462c02c9cda082e112a5b104909d",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-mcc-2.png",
+      "sha256": "eef0f97905b378d500954afa0e1c375f65e6711116cac9f453f72f9851de725a",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-tpo-3.png",
+      "sha256": "22b5bfc8b0c0871d658f2b5f18e134fe3988dbd5ea40f3c4f1b5e71d91df706f",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-vol-1.png",
+      "sha256": "29b0a1e4cef3f317d0b882cc6cf07ddb7da11d701bf5ebd52734bde7c52b3d53",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-sample-vol-2.png",
+      "sha256": "90031de64f5d4469b90ec7ab9725ab7beb2b27ae4ff576cf3c7034d56fbd8c20",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-stack-chb-0.png",
+      "sha256": "c6e74e1883df4547ddfe9540caf38e91acb89adb7e4657963240b0cbbe64077b",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-stack-chb-2.png",
+      "sha256": "4afa4c32d29be6efeb6b54e70e2178ac0708e0ee12fa38e5abb1a5974377070e",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-stack-sip-1.png",
+      "sha256": "f1e2da9eeae2f18deac3cc4995c6a1d5774aca0d21ee50928927d88e9dcdae58",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-stack-sip-3.png",
+      "sha256": "2ab13151e1abf2ac53a1fda6de11f65266fc468cd26b2b537c46d62e49cb3440",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-table-hop-count.png",
+      "sha256": "1009a28c38e41b2bec6e72d58d2e99f713cde5910e73a8ad25e9aa57fb6bb9e8",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
+      "file": "fx-edit-table-hop-step.png",
+      "sha256": "1128e87a607b07bbf5d28f89da32bf841714449bef2b70265869897b7816cd76",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceDirty": true
+    },
+    {
       "file": "fx-sample-sections.png",
       "sha256": "82c7a2a0f81008438dbcd35531ce7c7b534573afcb053d2a169d33e620f437b3",
       "width": 240,
