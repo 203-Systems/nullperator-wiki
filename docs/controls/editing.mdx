@@ -92,7 +92,15 @@ reference, or Phrase note/instrument cell immediately, using the remembered valu
 A new Phrase note carries the last explicit instrument with it; this starts at
 Instrument 00 in a fresh session. The instrument needs a sound before you can hear it.
 Holding Enter does not repeatedly fill the cell, and releasing it does not insert
-another value. FX command cells keep their command-selection behavior.
+another value.
+
+On an FX command, hold <Keycap>Enter</Keycap> to open **FX Select**. Directions
+move through six-row columns in four fixed groups: **Standard**, **Sample**,
+**MIDI**, and **Synth**. All groups are accessible for every instrument;
+unsupported commands are grey but selectable. The top bar shows the current
+instrument type. The list scrolls horizontally without wrapping. Release Enter
+to close it. Existing unsupported FX keep their normal directory positions.
+See [Choose an available command](../reference/commands#choose-an-available-command).
 
 ### Cut the current value
 
@@ -124,6 +132,12 @@ press <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to move the digit focus.
 <Keycap>Up</Keycap> / <Keycap>Down</Keycap> edits the focused digit. The
 command mnemonic remains highlighted while either its mnemonic or its value is
 active, and the bottom bar continues to show command help.
+
+For `SIP aabb`, the bottom bar also keeps the instrument type, parameter name,
+current value, and range visible while you edit. Selecting a digit in `aa`
+highlights the parameter number and name; selecting a digit in `bb` highlights
+the value. The name updates as `aa` changes. An unresolved instrument shows
+**Parameter aa** until its parameter map can be determined.
 
 ## Project, Device, and Instrument lists
 

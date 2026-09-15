@@ -1,0 +1,75 @@
+---
+title: Chiptune
+sidebar_position: 8
+description: Create pulse and noise leads with arpeggio, vibrato, and pitch sweep.
+---
+
+# Chiptune
+
+`CHIPTUNE` is a synth for pulse leads, fast arpeggios, and chip-style noise.
+It makes sound without a WAV. Choose it on an instrument's **Type** row, then
+enter a Phrase note using that instrument number.
+
+<InterfaceShot src="img/screens/instrument-chiptune.png" alt="Chiptune instrument with waveform, volume, and envelope settings">
+Chiptune groups its controls into Oscillator, Envelope, Vibrato, Sweep, and Modulation.
+</InterfaceShot>
+
+## Try a chip arpeggio
+
+1. Choose `CHIPTUNE` and leave **WAVE** at `PULSE 25`.
+2. Enter a Phrase note and set its FX to `ARP 4700`.
+3. Play the Phrase. The voice cycles through the base note, major third, and fifth.
+4. Increase **ARP SPEED** for a faster cycle, or change **WAVE** to `TRIANGLE 4BIT`.
+
+Each instrument can sound on all eight tracks. Two Chiptune instrument instances
+are available in the shared 64-slot bank. A new note on the same track replaces
+that voice. Note Off and `GOF` stop it; `KIL` stops it after its tick delay.
+
+## Waveforms
+
+Choose `PULSE 12.5`, `PULSE 25`, `PULSE 50`, `TRIANGLE 4BIT`, `NOISE GB7`,
+`NOISE NES`, `NOISE SN76489`, or `WHITE NOISE`. The three named noise modes use
+frequency-dependent shift registers; white noise uses a separate generator.
+
+## Parameters
+
+Two-digit values are hexadecimal. Transpose and sweep amount are decimal.
+Disabled values (OFF in the table below) appear as `--` on the page.
+
+| Field | Range | Default | Use |
+| --- | --- | --- | --- |
+| TRANSPOSE | −24–24 | 0 | Shift the base note in semitones |
+| VOLUME | `00`–`FF` | `80` | Set the voice level |
+| BURST | `OFF`, `01`–`FF` | `OFF` | Begin with a white-noise burst; approximately 1 ms per unit |
+| ARP SPEED | `00`–`22` | `12` | Set ARP step speed; higher is faster, approximately 35–1 ms per step |
+| LENGTH | `OFF`, `01`–`FF` | `OFF` | Cap the note length; approximately 1 ms per unit, OFF leaves it to the envelope |
+| ATTACK | `00`–`FF` | `00` | Rise time; higher is slower |
+| DECAY | `00`–`FF` | `80` | Fall time; higher is slower |
+| DELAY | `00`–`FF` | `40` | Delay before automatic vibrato, approximately 5.8 ms per unit |
+| DEPTH | `00`–`FF` | `07` | Automatic vibrato depth; zero disables it |
+| TIME | `00`–`FF` | `00` | Pitch-sweep duration, in 10 ms control ticks |
+| AMOUNT | −127–127 | 0 | Downward or upward sweep strength per control tick |
+| TABLE | `OFF`, `00`–`1F` | `OFF` | Assign a Table |
+| AUTOMATION | `NO` / `YES` | `NO` | Enable Table automation |
+
+The volume envelope has attack and decay stages. It continues to decay while a
+note plays; there is no sustain stage. **LENGTH** can stop a note before decay
+finishes. Sweep amount controls a repeated pitch multiplier, not a final semitone
+target; use `PSL` for a specified interval.
+
+## Commands
+
+Chiptune supports `ARP`, `CSH`, `GOF`, `LEG`, `PAN`, `PFT`, `PSL`, `SIP`, `VIB`,
+and `VOL`, alongside the page's Standard commands. `CSH` uses its low nibble for bit crushing;
+the drive byte is unused. `VOL aa00` fades to silence over `aa` control ticks,
+and `VOL 00FF` sets maximum voice volume immediately.
+
+`SIP` changes the playing voice only; a new note restores the instrument's saved
+settings. See the [SIP parameter map](../reference/commands#voice-parameter-commands)
+for the indices and examples. Instrument settings are saved with the project;
+use Instrument **Save** to export a reusable `.pti` file.
+
+## Credits
+
+Adapted from the Chiptune Lead instrument in
+[copingTracker by n1LS](https://github.com/n1LS/copingTracker), under BSD-3-Clause.

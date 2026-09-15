@@ -28,6 +28,9 @@ per-type pools:
 | MIDI | 16 |
 | SID | 3 |
 | OPAL | 3 |
+| Drum | 4 |
+| Stack | 4 |
+| Chiptune | 2 |
 
 These pools share the same 64-slot bank. Reaching one type's pool limit does
 not imply that every instrument slot is occupied.

@@ -73,9 +73,12 @@ tracks. A new note on the same track replaces that voice. Use another track
 if you need independently overlapping notes.
 
 Note Off starts the release stage; `KIL` stops the voice after its specified
-tick delay. Stack also handles `VOL` and the low digit of `CSH` for bit crushing;
-the drive part of `CSH` is not used. Its instrument parameters are not a promise of
-support for every Sample-specific FX command.
+tick delay. Use `CHU`, `CHD`, or `CHB` to change chord intervals on a Phrase or Table step,
+and `SIP` to change a voice parameter without editing the saved instrument.
+Stack also supports `ARP`, `VIB`, `PAN`, `PSL`, `LEG`, `PFT`, `VOL`, and the low
+digit of `CSH` for bit crushing. The drive part of `CSH` is not used. See the
+[command reference](../reference/commands#voice-parameter-commands) for encodings,
+parameter indices, and timing.
 
 See [Tables](../sequencer/table) for sequencing a Table and
 [Choose an instrument](overview) for saving or importing a sound.

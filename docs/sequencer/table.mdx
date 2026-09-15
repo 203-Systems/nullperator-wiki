@@ -37,14 +37,28 @@ An empty command is `---`; an empty value is `0000`. The bottom bar normally sho
 
 ## Edit commands and values
 
-Directions move through the fixed 16 × 6 grid. Tap <Keycap>Enter</Keycap> to recall the last command or value for the current cell.
+Directions move through the fixed 16 × 6 grid. On a value cell, tap <Keycap>Enter</Keycap> to recall the last value. On a command cell, Enter opens FX Select and preserves the existing command until you choose another.
 
 Hold <Keycap>Enter</Keycap> to edit:
 
 | Cell | <Keycap>Left</Keycap> / <Keycap>Right</Keycap> | <Keycap>Down</Keycap> / <Keycap>Up</Keycap> |
 | --- | --- | --- |
-| FX command | Previous / next command | Coarse alphabetic command jump |
+| FX command | Move left / right in FX Select | Move down / up in FX Select |
 | Four-digit value | Move the active digit | Decrease / increase that hex digit |
+
+Hold <Keycap>Enter</Keycap> on an FX command to open **FX Select**. Six-row
+columns form a fixed directory: **Standard**, **Sample**, **MIDI**, and **Synth**.
+All groups stay accessible; the top bar shows the current instrument type.
+Directions move without wrapping and scroll the list horizontally as needed.
+Release Enter to close it. Unsupported FX stay in their normal group, grey but
+selectable, with **Not Supported** / **On This Instrument** in the two-line help
+bar. See
+[Choose an available command](../reference/commands#choose-an-available-command)
+for instrument inheritance, Table context, and the capability list.
+
+<InterfaceShot src="img/screens/fx-sample-table-sections.png" alt="Available Table commands for a Sample instrument">
+  Table uses its own common commands, including IRT and STP, alongside Sample effects.
+</InterfaceShot>
 
 The highlighted digit corresponds to a step of `1000`, `0100`, `0010`, or `0001`. Each command applies its own valid range, so the value may clamp rather than wrap.
 

@@ -60,10 +60,20 @@ Hold <Keycap>Enter</Keycap> and use the directions:
 | --- | --- | --- |
 | `NOTE` | Previous / next note in the project scale | <Keycap>Down</Keycap> / <Keycap>Up</Keycap> one octave |
 | `INS` | `-1` / `+1` slot | `-10` / `+10` in hexadecimal (`-16` / `+16`) |
-| FX command | Previous / next command | Coarse alphabetic command jump |
+| FX command | Move left / right in FX Select | Move down / up in FX Select |
 | FX value | Move the active digit | Decrease / increase that hex digit |
 
 For sliced sample instruments, NOTE editing stays inside the instrument's slice-note range. Otherwise NOTE editing follows the project's root and scale.
+
+Hold <Keycap>Enter</Keycap> on an FX command to open **FX Select**. Six-row
+columns form a fixed directory: **Standard**, **Sample**, **MIDI**, and **Synth**.
+All groups stay accessible; the top bar shows the current instrument type.
+Directions move without wrapping and scroll the list horizontally as needed.
+Release Enter to close it. Unsupported FX stay in their normal group, grey but
+selectable, with **Not Supported** / **On This Instrument** in the two-line help
+bar. See
+[Choose an available command](../reference/commands#choose-an-available-command)
+for instrument inheritance, Table context, and the capability list.
 
 FX values have a four-digit cursor. While <Keycap>Enter</Keycap> is held,
 <Keycap>Left</Keycap> and <Keycap>Right</Keycap> choose the digit;
