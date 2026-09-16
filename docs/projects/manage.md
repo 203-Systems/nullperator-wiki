@@ -28,6 +28,10 @@ project is then saved under that name.
 top-right status area before storage I/O begins and remains visible briefly
 after the write completes.
 
+Manual saves write `/projects/<name>/npsong.dat`. After a successful save,
+NullPerator clears that project's recovery autosave. An existing `lgptsav.dat`
+is kept unchanged for compatibility; it is not the file updated by **SAVE**.
+
 Use **RENAME** when you want to save the project under a different name:
 
 1. Enter a new project name.
@@ -56,6 +60,11 @@ project.
 Loading is blocked while playback is running. If the current project is dirty,
 NullPerator asks before replacing it. If a project cannot be opened, an error
 appears and your current song stays open. After a successful load, Song opens.
+
+Loading first tries a valid `autosave.dat`, then the manual `npsong.dat`. If the
+new file is absent, NullPerator can load the older `lgptsav.dat` instead. You do
+not need to rename an old project's file before opening it. See
+[Autosave](./autosave-render-backup.md#autosave) for recovery behavior.
 
 ## Delete a project
 

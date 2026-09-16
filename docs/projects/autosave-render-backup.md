@@ -12,19 +12,33 @@ description: Let NullPerator autosave, export audio, and keep a backup.
 
 ## Autosave
 
+Autosave writes `autosave.dat` inside the current project folder. It does **not**
+overwrite the manually saved `npsong.dat` or an older `lgptsav.dat`.
+
 NullPerator checks for unsaved changes about once a minute. It waits until it is
 safe to write—for example, until playback, recording, rendering, and file
 browsing have stopped.
 
 The saving mark replaces the battery in the top-right corner while a save is in
 progress. Before closing the app, powering off, or removing storage, stop
-playback and wait for that mark to disappear.
+playback, use manual **SAVE**, and wait for that mark to disappear.
 
 If an autosave seems overdue, leave any browser, editor, or dialog and return to
 a normal music page. Stop playback and wait a moment.
 
-Autosave helps recover recent work, but it is not version history. Use manual
-**Save** before a risky change and keep an external backup for important songs.
+When you reopen a project, NullPerator tries a valid `autosave.dat` before the
+manual save. Recent edits can therefore return even though the main file has
+not changed. Without a usable autosave, it loads `npsong.dat`, or the legacy
+`lgptsav.dat` when the new file is absent.
+
+A successful manual **SAVE** writes `npsong.dat` and clears the recovery
+autosave. Saving an older project leaves its `lgptsav.dat` unchanged.
+
+Autosave replaces the previous autosave; it is not version history and does not
+replace an explicit save. Unsaved-change confirmations can still appear after
+an autosave. Use manual **SAVE** before a risky change and keep an external
+backup for important songs. See [Files and compatibility](../reference/files-and-compatibility.md#project-files)
+for the complete project layout.
 
 ## Render a mixdown or stems
 

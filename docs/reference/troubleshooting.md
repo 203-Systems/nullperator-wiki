@@ -9,8 +9,10 @@ description: Diagnose project, storage, audio, MIDI, render, theme, and font iss
 ## A project is missing from the browser
 
 The Project Browser lists **directories**, not loose project documents. Check
-that the layout is `/projects/<name>/lgptsav.dat`. A copied `lgptsav.dat`
-directly inside `/projects` is not a project entry.
+that the layout is `/projects/<name>/npsong.dat`, or
+`/projects/<name>/lgptsav.dat` for a legacy project. A save file copied directly
+inside `/projects` is not a project entry. Copy the complete project folder,
+including its samples.
 
 The internal `.untitled` directory is deliberately hidden. Save the new
 project under a valid name to make it appear. Use the `..` entry to move to the
@@ -23,18 +25,32 @@ replace its contents with an empty project. Instead:
 
 1. Dismiss the error and confirm the previously open project is still present.
 2. Copy the rejected project directory somewhere safe.
-3. Confirm it contains the expected `lgptsav.dat`, not an unrelated XML or
-   MIDI file renamed as a project.
+3. Confirm it contains `npsong.dat`, or `lgptsav.dat` for a legacy project,
+   rather than an unrelated XML or MIDI file renamed as a project.
 4. Restore an earlier complete project directory if one is available.
 
 NullPerator accepts its current format and supported legacy PicoTracker project
 documents. Validation is based on document content, not the directory name.
+
+If `npsong.dat` exists but is corrupt, NullPerator does not silently switch to
+an older `lgptsav.dat`. Keep the whole folder, including any `.tmp`, `.bak`, and
+autosave files, when making a recovery backup.
+
+## Recent edits return after reopening a project
+
+NullPerator loads a valid `autosave.dat` before the manual save. This can restore
+recent edits without changing `npsong.dat` or the legacy `lgptsav.dat`. Use
+manual **SAVE** to make the restored state the new main save and clear the
+autosave. See [Autosave](../projects/autosave-render-backup.md#autosave).
 
 ## Saving never occurs
 
 Autosave waits for a safe state. Stop playback, close modal workflows, and
 return to Song, Chain, Phrase, Table, Groove, Instrument, Device, Theme, or
 Mixer. Project, Browser, Font, sample editing, Rename, and Render defer it.
+
+Autosave updates `autosave.dat`, not the main project file. An unchanged
+`npsong.dat` or `lgptsav.dat` therefore does not mean autosave failed.
 
 For a new `.untitled` project, use Project → Name → **SAVE** and enter a valid
 name. During explicit Rename, complete the pending save before trying to leave

@@ -27,6 +27,32 @@ or from the Files app.
 Back up the whole project folder, not only the main project file. This keeps its
 imported samples with the song.
 
+## Project files
+
+Each named project has its own folder at `/projects/<name>/`:
+
+| File or folder | Purpose |
+| --- | --- |
+| `npsong.dat` | Main project file written by manual **SAVE** and Save As |
+| `autosave.dat` | Recovery file written by autosave without overwriting the main file |
+| `lgptsav.dat` | Legacy main file, read when `npsong.dat` is absent |
+| `samples/` | Samples imported into this project |
+
+When loading, NullPerator prefers a valid autosave over the manual save. It
+recovers interrupted writes from matching `.tmp` and `.bak` files when
+possible. Do not remove those files while the app is running.
+
+Opening a legacy project does not convert or rename its main file. The next
+manual **SAVE** writes `npsong.dat`, clears the autosave, and leaves the original
+`lgptsav.dat` unchanged. If both main filenames are present, `npsong.dat` takes
+precedence. A corrupt new main file does not silently fall back to the older
+legacy copy.
+
+Older app or firmware builds may still write and read only `lgptsav.dat` as the
+main file. Update the destination before moving a newly saved project there;
+the retained legacy file does not contain later edits, and renaming a file does
+not make its contents compatible with an older build.
+
 ## Moving a project
 
 1. Stop playback and save the project.
