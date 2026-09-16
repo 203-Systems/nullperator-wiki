@@ -63,7 +63,7 @@ does not change tempo in version 0.1.
 | --- | --- | --- | --- |
 | Input | One TRS MIDI IN | One selected Web MIDI input | One selected CoreMIDI input |
 | Output | TRS MIDI OUT | One selected Web MIDI output | One selected CoreMIDI output |
-| Device choice | `TRS` is the functional route | Select in the Web MIDI panel; keep the Device route non-`OFF` | Enable MIDI and select endpoints in app settings |
+| Device choice | `TRS` is the functional route | Select in the Web MIDI panel; tracker Device route row is hidden | Enable MIDI and select endpoints in app settings |
 | Bluetooth MIDI | Through an external interface | When exposed by the browser | Pair from the app's Bluetooth MIDI screen |
 | SysEx | Unsupported | Unsupported | Unsupported |
 

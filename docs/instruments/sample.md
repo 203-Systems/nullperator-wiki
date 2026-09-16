@@ -89,7 +89,7 @@ Reversing the order of the start/end points reverses playback where the selected
 
 ## Slices and notes
 
-A Sample instrument can store up to 16 slice starts. Once slices are present, the displayed note range `C2`–`D#3` addresses slice slots 1–16. Each slice plays once from its start to the next later slice (or the end of the WAV), independent of the instrument's loop mode.
+A Sample instrument can store up to 16 slice starts. Once slices are present, the displayed note range `C4`–`D#5` (stored notes 48–63) addresses slice slots 1–16. Each slice plays once from its start to the next later slice (or the end of the WAV), independent of the instrument's loop mode. Older builds labelled these same slice notes `C2`–`D#3`; existing sequences need no note changes.
 
 Slice points belong to the instrument, not to the WAV. Importing a different sample into the current instrument clears them. See **Sampling → Slices** for editing controls.
 

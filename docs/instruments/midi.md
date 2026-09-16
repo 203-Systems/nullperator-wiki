@@ -12,7 +12,10 @@ A MIDI instrument sends sequenced notes and commands to an external MIDI destina
   MIDI instrument values are stored with the project and sent to the selected output.
 </InterfaceShot>
 
-NullPerator can allocate up to **16 MIDI instruments** at once.
+Any of the 64 instrument slots can hold a MIDI preset. This does not add MIDI
+channels: the selected output still uses channels 1–16. If several presets
+target one channel, the highest-numbered slot with an enabled Program or
+nonzero Volume supplies that channel's corresponding playback-start setting.
 
 ## Send your first note
 

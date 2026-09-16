@@ -75,7 +75,7 @@ sample. Replacing slices changes their positions, not their count or the WAV.
 ## Play slices from a phrase
 
 Use <KeyCombo keys={['Shift', 'Left']} /> to return to the instrument. When slice
-points are present, notes `C2`–`D#3` address slots 1–16. Undefined slots in that
+points are present, notes `C4`–`D#5` (stored notes 48–63) address slots 1–16. Undefined slots in that
 range are silent. Each slice plays once up to the next boundary, independently
 of the instrument's loop mode.
 

@@ -6,7 +6,9 @@ description: Build two-operator FM and additive patches with the OPAL synthesize
 
 # OPAL instrument
 
-OPAL is a two-operator FM synthesizer inspired by OPL-era PC sound hardware. Each instrument is monophonic. NullPerator can allocate up to **three OPAL instruments**, so use separate instrument slots when you need simultaneous OPAL voices.
+OPAL is a two-operator FM synthesizer inspired by OPL-era PC sound hardware.
+Each instrument is monophonic. Any of the 64 instrument slots can hold an OPAL
+preset, subject to available memory; there is no fixed three-preset limit.
 
 <InterfaceShot src="img/screens/instrument-opal.png" alt="NullPerator OPAL two-operator instrument settings">
   General settings lead into two aligned operator columns.
@@ -39,4 +41,4 @@ The blue **Operator Settings** divider shares a row with **OP 1** and **OP 2**. 
 
 ## Voice behaviour
 
-One OPAL instrument owns one synth channel. If the same instrument number is triggered by several tracker tracks, a later note replaces the earlier note. Allocate another OPAL slot for another simultaneous voice, up to the fixed pool limit of three.
+One OPAL instrument owns one synth channel. If the same instrument number is triggered by several tracker tracks, a later note replaces the earlier note. Allocate another OPAL slot for another simultaneous voice.

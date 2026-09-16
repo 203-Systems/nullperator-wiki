@@ -1,7 +1,7 @@
 ---
 title: Choose an instrument
 sidebar_position: 1
-description: Choose Sample, MIDI, SID, OPAL, Drum, Stack, or Chiptune for your Phrase notes.
+description: Choose Sample, MIDI, SID, OPAL, Drum, Stack, Chiptune, or GB instruments for your Phrase notes.
 ---
 
 # Choose an instrument
@@ -23,7 +23,7 @@ the sound.
 5. Use <KeyCombo keys={['Shift', 'Left']} /> to return to Phrase.
 6. Hold <Keycap>Enter</Keycap> on the note to hear it.
 
-OPAL, SID, Drum, Stack, and Chiptune make sound without loading a file. A Sample instrument needs a WAV,
+OPAL, SID, Drum, Stack, Chiptune, and the GB instruments make sound without loading a file. A Sample instrument needs a WAV,
 and MIDI plays an external instrument.
 
 ## Assign an instrument in Phrase
@@ -57,7 +57,15 @@ the note in place; cutting NOTE clears both NOTE and INS.
 | [`DRUM`](drum) | Build a twelve-sound synthesized drum kit |
 | [`STACK`](stack) | Make layered leads, detuned sounds, and chords from one note |
 | [`CHIPTUNE`](chiptune) | Make pulse leads, fast arpeggios, and chip-style noise |
+| [`GB-WAVE`](gb#gb-wave) | Edit a 32-point, 4-bit waveform for GB-style basses and leads |
+| [`GB-PULSE`](gb#gb-pulse) | Use GB-style pulse duty, envelope, length, and sweep |
+| [`GB-NOISE`](gb#gb-noise) | Use a 7- or 15-bit noise generator for percussion and effects |
 | `NONE` | Leave the instrument empty |
+
+All 64 slots (`00`–`3F`) accept any available type. There is no separate
+two-Chiptune or three-OPAL preset quota: you can give several Chiptune or GB
+slots different sounds. Memory is allocated as needed. Preset count is not
+the same as simultaneous voice count; see [Capacities and platforms](../reference/capacities-platforms.md#instrument-slots-and-voices).
 
 ## Page sections
 
@@ -74,6 +82,9 @@ between editable rows.
 | Drum | Voices; Kit |
 | Stack | Oscillator; Tone; Envelope; Modulation |
 | Chiptune | Oscillator; Envelope; Vibrato; Sweep; Modulation |
+| GB-Pulse | Oscillator; Envelope & Sweep; Modulation |
+| GB-Noise | Noise; Envelope; Modulation |
+| GB-Wave | Oscillator; Wave RAM (4 Samples / Row); Modulation |
 
 Drum's **Voices** divider shares the column-header row. SID's **Envelope**
 divider shares its ATK / DEC / SUS / REL headers, and OPAL's **Operator Settings**
@@ -112,7 +123,8 @@ An exported Sample instrument stores its settings and sample filename; it does *
 
 Select **Type** and press <Keycap>Left</Keycap> / <Keycap>Right</Keycap> to change it.
 
-Available types are `NONE`, `SAMPLE`, `MIDI`, `SID`, `OPAL`, `DRUM`, `STACK`, and `CHIPTUNE`.
+Available types are `NONE`, `SAMPLE`, `MIDI`, `SID`, `OPAL`, `DRUM`, `STACK`,
+`CHIPTUNE`, `GB-WAVE`, `GB-PULSE`, and `GB-NOISE`.
 The selector wraps around, so keep moving until the type you want appears.
 
 If the current instrument has a name or edited settings, NullPerator asks before

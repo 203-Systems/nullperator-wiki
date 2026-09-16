@@ -13,10 +13,13 @@ filtered. A parameter is four hexadecimal nibbles, shown below as `aabb`,
 `abcd`, or dashes for unused digits. A command that the current player context
 or instrument does not implement has no effect.
 
+In the tables below, **GB tone** means GB-Pulse and GB-Wave; **all GB** also
+includes GB-Noise. Noise does not follow note pitch or pitch effects.
+
 | Command | Parameter | Applies to | Implemented behavior |
 | --- | --- | --- | --- |
 | `---` | `----` | All | No command |
-| `ARP` | `abcd` | Sample, Stack, Chiptune | Cycle the original note and up to four relative-pitch offsets from `a`–`d` |
+| `ARP` | `abcd` | Sample, Stack, Chiptune, GB tone | Cycle the original note and up to four relative-pitch offsets from `a`–`d` |
 | `CHB` | `abcd` | Stack | Set four chord intervals as signed nibbles: `0`–`7` are 0–7, `8`–`F` are −8–−1 semitones |
 | `CHD` | `abcd` | Stack | Set four intervals 0–15 semitones below the base note |
 | `CHU` | `abcd` | Stack | Set four intervals 0–15 semitones above the base note |
@@ -25,28 +28,28 @@ or instrument does not implement has no effect.
 | `FCT` | `aabb` | Sample | Ramp filter cutoff toward `bb` over `aa × 4` tracker ticks; `00` applies immediately |
 | `FLT` | `aabb` | Sample | Set cutoff `aa` and resonance `bb` immediately |
 | `FRS` | `aabb` | Sample | Ramp filter resonance toward `bb` over `aa × 4` tracker ticks; `00` applies immediately |
-| `GOF` | `----` | SID, OPAL, Drum, Stack, Chiptune | Release the synth gate/envelope; Drum and Chiptune stop the voice |
+| `GOF` | `----` | SID, OPAL, Drum, Stack, Chiptune, all GB | Release the synth gate/envelope; Drum, Chiptune, and GB stop the voice immediately |
 | `GRV` | `aabb` | Player, Table | Select groove `bb`; in a Phrase, nonzero `aa` applies it to all tracks, while a Table uses its local groove |
 | `HOP` | Phrase: `---b`; Table: `aa-b` | Phrase, Table | Phrase uses only destination step `b`, with no repeat count. Table hops to step `b` `aa` times; `aa = 00` repeats indefinitely. The third digit is unused |
 | `IRT` | `--bb` | Table | Retrigger the current instrument with signed 8-bit semitone offset `bb` |
 | `KIL` | `--bb` | Player, Table | Stop the active voice after `bb` ticks |
-| `LEG` | `aabb` | Sample, MIDI, Stack, Chiptune | Slide toward pitch target `bb` at speed `aa`; MIDI uses its curved pitch-bend path |
+| `LEG` | `aabb` | Sample, MIDI, Stack, Chiptune, GB tone | Slide toward pitch target `bb` at speed `aa`; MIDI uses its curved pitch-bend path |
 | `LOF` | `aaaa` | Sample | Shift loop start and end together by the signed offset, within sample bounds |
 | `MCC` | `aabb` | MIDI | Send Control Change number `aa` with value `bb`; both become 7-bit MIDI values |
 | `MCH` | `abcd` | MIDI | Add four scale-aware chord offsets; a zero nibble omits that added note |
 | `MPC` | `--bb` | MIDI | Send Program Change `bb` as a 7-bit value |
-| `PAN` | `aabb` | Sample, Stack, Chiptune | Sample ramps pan toward `bb` over `aa × 4` tracker ticks. Stack and Chiptune move by `aa` units per 10 ms. Zero `aa` applies immediately; `bb = 00` is right |
-| `PFT` | `aabb` | Sample, Stack, Chiptune | Fine-tune toward `bb` at speed `aa`, over approximately ±1 semitone |
+| `PAN` | `aabb` | Sample, Stack, Chiptune, all GB | Sample ramps pan toward `bb` over `aa × 4` tracker ticks. Stack, Chiptune, and GB move by `aa` units per 10 ms. Zero `aa` applies immediately; `bb = 00` is right |
+| `PFT` | `aabb` | Sample, Stack, Chiptune, GB tone | Fine-tune toward `bb` at speed `aa`, over approximately ±1 semitone |
 | `POF` | `aabb` | Sample | If `aa` is nonzero, jump to absolute fraction `aa/256`, then add signed relative fraction `bb/256`; position wraps |
-| `PSL` | `aabb` | Sample, MIDI, Stack, Chiptune | Slide toward pitch target `bb` at speed `aa`; MIDI uses its linear pitch-bend path |
+| `PSL` | `aabb` | Sample, MIDI, Stack, Chiptune, GB tone | Slide toward pitch target `bb` at speed `aa`; MIDI uses its linear pitch-bend path |
 | `RTG` | `aabb` | Sample, MIDI | Retrigger every `bb` ticks; Sample advances by offset `aa` per repeat, while MIDI ignores `aa` |
-| `SIP` | `aabb` | Stack, Chiptune | Set voice parameter `aa` to byte `bb`; see the parameter map below |
+| `SIP` | `aabb` | Stack, Chiptune, all GB | Set voice parameter `aa` to byte `bb`; see the parameter maps below |
 | `STP` | `----` | Table | Stop the current Table playback |
 | `TBL` | `--bb` | Player | Start Table `00`–`1F` for the current track |
 | `TPO` | `aabb` | Player | Set tempo from 16-bit hexadecimal `aabb`, clamped to 60–400 BPM (`003C`–`0190`) |
 | `VEL` | `--bb` | MIDI | Set following MIDI Note On velocity, limited to `00`–`7F` |
-| `VIB` | `aabb` | Sample, Stack, Chiptune | Set vibrato rate `aa` and depth `bb`; `0000` disables the modulation |
-| `VOL` | `aabb` | Sample, MIDI, Drum, Stack, Chiptune | Sample ramps volume toward `bb` over `aa × 4` tracker ticks; MIDI sends CC 7 from `bb/2`; Drum and Stack set volume to `bb` immediately. MIDI, Drum, and Stack ignore `aa`. Chiptune ramps over `aa × 10` ms; zero `aa` applies immediately |
+| `VIB` | `aabb` | Sample, Stack, Chiptune, GB tone | Set vibrato rate `aa` and depth `bb`; `0000` disables the modulation |
+| `VOL` | `aabb` | Sample, MIDI, Drum, Stack, Chiptune, all GB | Sample ramps volume toward `bb` over `aa × 4` tracker ticks; MIDI sends CC 7 from `bb/2`; Drum, Stack, and GB set volume to `bb` immediately. MIDI, Drum, Stack, and GB ignore `aa`. Chiptune ramps over `aa × 10` ms; zero `aa` applies immediately |
 
 ## Choose an available command
 
@@ -94,6 +97,8 @@ The following table lists actual playback support, across all groups:
 | Drum | `CSH`, `GOF`, `VOL` |
 | Stack | `ARP`, `CHB`, `CHD`, `CHU`, `CSH`, `GOF`, `LEG`, `PAN`, `PFT`, `PSL`, `SIP`, `VIB`, `VOL` |
 | Chiptune | `ARP`, `CSH`, `GOF`, `LEG`, `PAN`, `PFT`, `PSL`, `SIP`, `VIB`, `VOL` |
+| GB-Pulse / GB-Wave | `ARP`, `GOF`, `LEG`, `PAN`, `PFT`, `PSL`, `SIP`, `VIB`, `VOL` |
+| GB-Noise | `GOF`, `PAN`, `SIP`, `VOL` |
 
 <InterfaceShot src="img/screens/fx-sample-sections.png" alt="FX directory with Sample support highlighted">
   Standard contains shared musical effects and Phrase commands. Sample filter and offset commands appear next; MIDI and Synth remain accessible by scrolling right.
@@ -181,6 +186,12 @@ engine-specific name.
 | `0A` | — | Sweep time, `00`–`FF` |
 | `0B` | — | Sweep amount, signed byte |
 
+GB types use a different [SIP parameter map](../instruments/gb.md#sip-parameter-map):
+`00` is duty on Pulse, output level on Wave, and noise shape on Noise. All use
+`02` for volume and `03` for length. Pulse/Noise use `04` for the envelope;
+Pulse also uses `05` for sweep. Wave indices `10`–`2F` edit its 32 individual
+4-bit samples. GB-Noise has no transpose parameter.
+
 For example, `SIP 010C` transposes a Stack or Chiptune voice up an octave.
 `CHU 047C` sets a major chord with an octave; `CHB C047` sets the additional
 voices to −4, 0, 4, and 7 semitones. `SIP` transpose preserves the current chord.
@@ -190,7 +201,7 @@ uses its **ARP SPEED** field: higher values are faster. For both, the base note
 is included and trailing zero nibbles are omitted; `ARP 0000` returns to the
 base pitch.
 
-On Stack and Chiptune, `PSL` interprets `bb` as a signed semitone target relative
+On Stack, Chiptune, GB-Pulse, and GB-Wave, `PSL` interprets `bb` as a signed semitone target relative
 to the base pitch. `LEG aa00` starts from the previous sounding pitch and returns
 to the new note's pitch. `PFT` interprets signed `bb` as a fraction of a semitone
 (128 units per semitone). These slides take `aa` control ticks at 100 Hz;
@@ -200,7 +211,12 @@ with chord offsets, arpeggio, and vibrato.
 Synth `PAN` uses `00` for right, `80` for center, and `FF` for left. `aa` is the
 step size at 100 Hz; zero applies immediately. `VIB` timing is independent of
 song tempo. Depth ranges differ: Sample's maximum changes playback rate by
-about ±25%; Stack and Chiptune use roughly one semitone at full depth.
+about ±25%; Stack, Chiptune, GB-Pulse, and GB-Wave use roughly one semitone at full depth.
+
+GB-Pulse and GB-Wave advance `ARP` on tracker ticks, like Stack. GB `VOL`
+always applies its low byte immediately; only Chiptune implements the
+`aa × 10` ms volume ramp. GB pitch is quantized by its period calculation,
+so a smooth change in the target need not produce a smooth frequency change.
 
 New commands use additional NullPerator IDs; existing commands, including MIDI
 `MCH`, keep their IDs. Existing projects load without conversion. Projects that
@@ -254,7 +270,7 @@ commands, both fields remain visible: Sample `VOL` shows **Time / Volume**,
 </InterfaceShot>
 
 The explanation follows the active instrument and page. MIDI `VOL` shows its
-outgoing CC 7 value; Drum and Stack `VOL` use only the low byte. Table `HOP`
+outgoing CC 7 value; Drum, Stack, and GB `VOL` use only the low byte. Table `HOP`
 shows the repeat count and destination step, while Phrase `HOP` uses only the
 destination step. An unresolved instrument uses **Per engine** for fields whose
 behavior depends on the eventual instrument.

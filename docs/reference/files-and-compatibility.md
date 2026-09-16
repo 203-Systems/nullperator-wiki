@@ -74,6 +74,20 @@ not only their filename. Instruments use NullPerator's supported instrument
 format. Import these through their browser pages so the file can be checked
 before it replaces anything.
 
+GB instruments store their sound settings in the project or exported instrument;
+GB-Wave's 32 waveform points are included and need no external WAV. Use a build
+that supports the GB types on the destination device. The flexible 64-slot bank
+also allows type combinations that older fixed-pool builds cannot load.
+
+### LSDJ and other trackers
+
+The [GB instruments](../instruments/gb.md) are native NullPerator synth types,
+not an LSDJ project importer. The Project Browser does not directly open
+`.lsdprj`, Game Boy `.sav`, or M8 project files. Renaming those files to
+`npsong.dat` does not convert them. Recreating a song requires translating its
+patterns, instruments, timing, and effects; GB-like tone generation alone does
+not guarantee identical LSDJ playback.
+
 ## Supported WAV files
 
 NullPerator imports uncompressed RIFF/WAVE files with one or two channels:

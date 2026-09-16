@@ -74,15 +74,39 @@ Browser policy requires a user gesture before audio can start. Use the
 Web audio control to unlock audio, then start transport again. Confirm
 that the browser tab and operating-system output are not muted.
 
-Device Volume controls the browser engine. Device Brightness does not change
-the Web app screen in version 0.1.
+Current Web builds hide the tracker's Device Volume and Brightness rows.
+Use the surrounding app's audio controls and the system volume.
+
+## Synths and samples have different levels
+
+Drum, Stack, Chiptune, and GB output levels are calibrated against the sample
+engine. This changes their output gain without rewriting saved volume values;
+projects balanced on an older build may need their synth levels reduced.
+It does not normalize every waveform or WAV to the same perceived loudness.
+
+Check the instrument's Volume, its envelope/output level, Phrase/Table `VOL`,
+and Mixer track levels. Device Volume changes the whole output, so it cannot
+correct a balance problem between a quiet synth and a loud sample. Lower the
+louder sources if the combined mix clips.
+
+## Hardware battery percentage and charging disagree
+
+Hardware percentage comes from the battery-voltage measurement; charging comes
+from the separate charger status signal. Connecting USB does not by itself mean
+the battery is full. An inaccurate voltage measurement can show 100% while the
+charger still reports charging. Updating the active-low charging interpretation
+does not repair a faulty voltage-sensing circuit.
+
+Check the hardware measurement if percentage jumps when USB is connected.
+Do not treat the percentage or a full icon alone as proof that charging has
+finished. The Web display is not a reading of a physical battery.
 
 ## MIDI output is silent
 
 - NullPerator hardware: select `TRS`, connect MIDI OUT, and verify the MIDI
   instrument channel. USB MIDI is disabled in NullPerator hardware 0.1.
-- Web: press **Enable Web MIDI**, grant permission, select an output, and keep
-  the Device MIDI route non-`OFF`.
+- Web: press **Enable Web MIDI**, grant permission, and select an output in
+  the Web MIDI panel. Current builds hide the tracker's Device MIDI route row.
 - iOS: enable MIDI in app settings, select a CoreMIDI output, and reconnect or
   re-pair the device if it is no longer listed.
 - MIDI Sync sends Clock/Start/Stop only; notes require a MIDI instrument in the

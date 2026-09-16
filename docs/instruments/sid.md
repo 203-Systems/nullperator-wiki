@@ -6,7 +6,9 @@ description: Configure the three-oscillator SID synthesizer and its shared filte
 
 # SID instrument
 
-The SID instrument drives one oscillator of NullPerator's emulated SID chip. Up to **three SID instruments** can be allocated, matching the chip's three oscillators.
+The SID instrument drives one oscillator of NullPerator's emulated SID chip.
+Any of the 64 instrument slots can hold a SID preset, but all SID presets share
+the same three oscillators. More presets do not create more SID voices.
 
 <InterfaceShot src="img/screens/instrument-sid.png" alt="NullPerator SID instrument settings">
   Voice settings and the shared SID filter live in one scrollable list.
@@ -42,8 +44,10 @@ to `0`–`F`; the bottom bar shows the hexadecimal steps **±1 / ±10**.
 
 `CUTOFF`, `RESONANCE`, `MODE`, and `VOLUME` represent chip-wide registers. Changing any of them on one SID instrument changes the value seen by the other SID instruments. `FILTER` remains per oscillator because it controls whether that voice is routed into the shared filter.
 
-Assign the three instruments different `OSCILLATOR` values when you want a conventional three-voice patch. Two instruments targeting the same oscillator overwrite the same SID voice state.
+Assign three instruments different `OSCILLATOR` values when you want a conventional three-voice patch. Two instruments targeting the same oscillator overwrite the same SID voice state. Additional presets can provide alternate settings for those oscillators.
 
 ## Note range
 
-The emulated SID frequency table accepts the displayed range **C0–B7**. Notes outside that range are rejected rather than wrapped.
+The emulated SID frequency table accepts the displayed range **C2–B9** (stored
+notes 24–119). Notes outside that range are rejected rather than wrapped.
+Older builds labelled the same stored notes C0–B7; playback pitch is unchanged.
