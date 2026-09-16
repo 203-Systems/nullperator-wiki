@@ -152,6 +152,14 @@
       "sourceDirty": true
     },
     {
+      "file": "fx-edit-sample-hop-0.png",
+      "sha256": "cf8b58b33f5b109f1a815fd07b42de623fc223767681019181bfec12a527f599",
+      "width": 240,
+      "height": 240,
+      "sourceRevision": "e3878d83994c2e792b70f16bddd5d7e1fc3fb6ae",
+      "sourceDirty": true
+    },
+    {
       "file": "fx-edit-sample-mcc-2.png",
       "sha256": "eef0f97905b378d500954afa0e1c375f65e6711116cac9f453f72f9851de725a",
       "width": 240,
@@ -177,10 +185,10 @@
     },
     {
       "file": "fx-edit-sample-vol-2.png",
-      "sha256": "90031de64f5d4469b90ec7ab9725ab7beb2b27ae4ff576cf3c7034d56fbd8c20",
+      "sha256": "ffe4c6842ed8f6bf66f970fe44607272bce1d5ce746381a12573875f3734fa6c",
       "width": 240,
       "height": 240,
-      "sourceRevision": "fc692b0a483e17de9f59e9ffba519d3d0f95f6c9",
+      "sourceRevision": "e3878d83994c2e792b70f16bddd5d7e1fc3fb6ae",
       "sourceDirty": true
     },
     {

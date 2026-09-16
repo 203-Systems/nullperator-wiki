@@ -30,7 +30,7 @@ const browser = await chromium.launch({headless: true, channel: process.env.CHRO
 try {
   // These contexts do not share the user's saved projects or storage.
   for (const [type, name, cases] of [
-    [1, 'sample', [['VOL', '0180', [1, 2]], ['FLT', '8040', [0, 3]], ['ARP', '047C', [2]], ['TPO', '0078', [3]], ['DLY', '000F', [3]], ['CSH', '12A4', [2]], ['MCC', '0740', [2]]]],
+    [1, 'sample', [['VOL', '0180', [1, 2]], ['FLT', '8040', [0, 3]], ['ARP', '047C', [2]], ['TPO', '0078', [3]], ['DLY', '000F', [3]], ['HOP', '02A5', [0]], ['CSH', '12A4', [2]], ['MCC', '0740', [2]]]],
     [2, 'midi', [['MCC', '0740', [1, 3]], ['VOL', '0180', [3, 0]], ['MCH', '0470', [3]]]],
     [6, 'stack', [['CHB', 'C047', [0, 2]], ['SIP', '0340', [1, 3]]]],
     [7, 'chiptune', [['VOL', '0280', [1, 3]], ['CSH', '1204', [0, 3]]]],

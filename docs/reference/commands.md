@@ -21,13 +21,13 @@ or instrument does not implement has no effect.
 | `CHD` | `abcd` | Stack | Set four intervals 0–15 semitones below the base note |
 | `CHU` | `abcd` | Stack | Set four intervals 0–15 semitones above the base note |
 | `CSH` | `aa-b` | Sample, Drum, Stack, Chiptune | Sample sets drive from `aa` and bit-crush from `b`, leaving zero components unchanged; Drum, Stack, and Chiptune set bit-crush from `b` immediately, including zero |
-| `DLY` | `---b` | Phrase note | Delay the note start by `b + 1` ticks |
-| `FCT` | `aabb` | Sample | Ramp filter cutoff toward `bb` at speed `aa` |
+| `DLY` | `---b` | Phrase note | Delay the note start by `b` ticks; `0` adds no delay |
+| `FCT` | `aabb` | Sample | Ramp filter cutoff toward `bb` over `aa × 4` tracker ticks; `00` applies immediately |
 | `FLT` | `aabb` | Sample | Set cutoff `aa` and resonance `bb` immediately |
-| `FRS` | `aabb` | Sample | Ramp filter resonance toward `bb` at speed `aa` |
+| `FRS` | `aabb` | Sample | Ramp filter resonance toward `bb` over `aa × 4` tracker ticks; `00` applies immediately |
 | `GOF` | `----` | SID, OPAL, Drum, Stack, Chiptune | Release the synth gate/envelope; Drum and Chiptune stop the voice |
 | `GRV` | `aabb` | Player, Table | Select groove `bb`; in a Phrase, nonzero `aa` applies it to all tracks, while a Table uses its local groove |
-| `HOP` | `aabb` | Phrase, Table | In a Phrase, jump to step `b` when that next step is reached; in a Table, jump to `b` and use `aa` as the repeat count |
+| `HOP` | Phrase: `---b`; Table: `aa-b` | Phrase, Table | Phrase uses only destination step `b`, with no repeat count. Table hops to step `b` `aa` times; `aa = 00` repeats indefinitely. The third digit is unused |
 | `IRT` | `--bb` | Table | Retrigger the current instrument with signed 8-bit semitone offset `bb` |
 | `KIL` | `--bb` | Player, Table | Stop the active voice after `bb` ticks |
 | `LEG` | `aabb` | Sample, MIDI, Stack, Chiptune | Slide toward pitch target `bb` at speed `aa`; MIDI uses its curved pitch-bend path |
@@ -35,7 +35,7 @@ or instrument does not implement has no effect.
 | `MCC` | `aabb` | MIDI | Send Control Change number `aa` with value `bb`; both become 7-bit MIDI values |
 | `MCH` | `abcd` | MIDI | Add four scale-aware chord offsets; a zero nibble omits that added note |
 | `MPC` | `--bb` | MIDI | Send Program Change `bb` as a 7-bit value |
-| `PAN` | `aabb` | Sample, Stack, Chiptune | Ramp pan toward `bb` at speed `aa`; `00` is right in the current engine |
+| `PAN` | `aabb` | Sample, Stack, Chiptune | Sample ramps pan toward `bb` over `aa × 4` tracker ticks. Stack and Chiptune move by `aa` units per 10 ms. Zero `aa` applies immediately; `bb = 00` is right |
 | `PFT` | `aabb` | Sample, Stack, Chiptune | Fine-tune toward `bb` at speed `aa`, over approximately ±1 semitone |
 | `POF` | `aabb` | Sample | If `aa` is nonzero, jump to absolute fraction `aa/256`, then add signed relative fraction `bb/256`; position wraps |
 | `PSL` | `aabb` | Sample, MIDI, Stack, Chiptune | Slide toward pitch target `bb` at speed `aa`; MIDI uses its linear pitch-bend path |
@@ -46,7 +46,7 @@ or instrument does not implement has no effect.
 | `TPO` | `aabb` | Player | Set tempo from 16-bit hexadecimal `aabb`, clamped to 60–400 BPM (`003C`–`0190`) |
 | `VEL` | `--bb` | MIDI | Set following MIDI Note On velocity, limited to `00`–`7F` |
 | `VIB` | `aabb` | Sample, Stack, Chiptune | Set vibrato rate `aa` and depth `bb`; `0000` disables the modulation |
-| `VOL` | `aabb` | Sample, MIDI, Drum, Stack, Chiptune | Sample ramps volume toward `bb` at speed `aa`; MIDI sends CC 7 from `bb/2`; Drum and Stack set volume to `bb` immediately; Chiptune ramps over `aa` control ticks |
+| `VOL` | `aabb` | Sample, MIDI, Drum, Stack, Chiptune | Sample ramps volume toward `bb` over `aa × 4` tracker ticks; MIDI sends CC 7 from `bb/2`; Drum and Stack set volume to `bb` immediately. MIDI, Drum, and Stack ignore `aa`. Chiptune ramps over `aa × 10` ms; zero `aa` applies immediately |
 
 ## Choose an available command
 
@@ -212,6 +212,28 @@ can change the sound of existing steps that already contained an unsupported
 command: for example, Stack now executes an `ARP` that older versions ignored.
 The command and parameter remain exactly as stored.
 
+## HOP: destination and repeats
+
+The selector help follows the page. **Phrase** shows `HOP ---b`: only the last
+hexadecimal digit chooses a destination row, `0`–`F`; the first three digits
+have no effect. When playback reaches a HOP row, Song/Chain playback advances
+to that row in the next phrase. Phrase playback jumps within the current phrase.
+There is no Phrase repeat count.
+
+**Table** shows `HOP aa-b`. For example, `HOP 02A5` jumps to row `5` twice,
+then falls through to the next row on the third visit. `A` is unused. `HOP 00A5`
+keeps jumping to row `5`. While editing, the bar shows **Repeat 02** and
+**Step 5**; selecting the unused third digit keeps both values visible.
+
+<InterfaceShot src="img/screens/fx-edit-sample-hop-0.png" alt="Phrase HOP 02A5 editing an unused high digit while the actual jump destination 5 remains visible">
+  An unused digit is marked explicitly. The displayed jump destination stays 5.
+</InterfaceShot>
+
+Sample `VOL`, `PAN`, `FCT`, and `FRS` show **Time** for the high byte: increasing
+it lengthens the ramp (`01` is four tracker ticks). Chiptune `VOL` and
+Stack/Chiptune pitch slides use 10 ms units. These descriptions reflect the
+existing playback behavior; they do not change stored commands or timing.
+
 ## Editing command fields
 
 <Keycap>Left</Keycap> and <Keycap>Right</Keycap> move between a command mnemonic and its parameter field.
@@ -224,10 +246,10 @@ For example, `TPO 0078` is 120 BPM and `KIL --0C` is 12 ticks.
 While you hold **Enter**, the left side of the two-line bottom bar explains the
 current command's fields and values. **Digit / Value** controls stay on the
 right. The field containing the focused digit is highlighted. For paired-byte
-commands, both fields remain visible: Sample `VOL` shows **Speed / Volume**,
+commands, both fields remain visible: Sample `VOL` shows **Time / Volume**,
 `FLT` shows **Cutoff / Resonance**, and MIDI `MCC` shows **CC / Value**.
 
-<InterfaceShot src="img/screens/fx-edit-sample-vol-2.png" alt="Sample VOL parameter editing with Volume highlighted, Speed still visible, and compact controls on the right">
+<InterfaceShot src="img/screens/fx-edit-sample-vol-2.png" alt="Sample VOL parameter editing with Volume highlighted, Time still visible, and compact controls on the right">
   Moving between the two bytes highlights the field you are changing.
 </InterfaceShot>
 
@@ -247,7 +269,9 @@ values. Arpeggios and chords show individual offsets and highlight the one being
 edited; a dash marks an omitted note. These explanations do not rewrite the
 stored hexadecimal value.
 
-Selecting an unused digit shows **Unused digit**. `GOF` and `STP` show
+Selecting an unused digit shows **Unused digit** while preserving the actual
+parameter values. The unused digit never replaces a displayed jump destination,
+volume, or other target. `GOF` and `STP` show
 **No parameter**. Unsupported commands keep **Not Supported / On This
 Instrument** beside the controls. Empty FX cells keep the plain editing legend.
 
